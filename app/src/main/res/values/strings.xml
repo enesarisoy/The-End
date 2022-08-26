@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">The End</string>
+    <string name="binding_null">Binding can not be null</string>
+    <string name="login">Login</string>
+    <string name="login_email"><font size="15">Email</font></string>
+    <string name="password"><font size="15">Password</font></string>
+    <string name="dont_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="register">Register</string>
+    <string name="name"><font size="15">Name</font></string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="movies">Movies</string>
+    <string name="favorites">Favorites</string>
+</resources>
