@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.ns.theend.R
 import com.ns.theend.databinding.FragmentLoginBinding
 import com.ns.theend.ui.BaseFragment
+import com.ns.theend.utils.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,7 +39,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
     private fun checkUser() {
 
         firebaseAuth.currentUser?.let {
-//            findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
 
         }
     }
@@ -53,12 +54,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
                 if (it.isSuccessful) {
                     findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
                 } else {
-                    Toast.makeText(context, it.exception.toString(), Toast.LENGTH_SHORT).show()
-
+                    context?.toast(it.exception.toString())
                 }
             }
         } else {
-            Toast.makeText(context, "Empty fields are not allowed", Toast.LENGTH_SHORT).show()
+            context?.toast("Empty fields are not allowed")
         }
     }
 
