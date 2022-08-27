@@ -35,10 +35,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
     }
 
     private fun checkUser() {
-        firebaseAuth.currentUser?.let {
 
-        }?: kotlin.run {
+        firebaseAuth.currentUser?.let {
             findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
+
+        } ?: kotlin.run {
+            Toast.makeText(context, "Null", Toast.LENGTH_SHORT).show()
         }
     }
 
