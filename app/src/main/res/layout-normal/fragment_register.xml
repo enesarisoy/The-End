@@ -5,7 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    tools:context=".ui.login.LoginFragment">
+    tools:context=".ui.register.RegisterFragment">
+
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/border"
+        android:elevation="22dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:paddingHorizontal="10dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <ImageView
         android:id="@+id/ivTheEnd"
@@ -19,10 +38,10 @@
         app:srcCompat="@drawable/word" />
 
     <TextView
-        android:id="@+id/tvLogin"
+        android:id="@+id/tvRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login"
+        android:text="@string/sign_up"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:layout_marginTop="10dp"
@@ -33,11 +52,28 @@
         app:layout_constraintTop_toBottomOf="@+id/ivTheEnd" />
 
     <EditText
+        android:id="@+id/etName"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/border"
+        android:elevation="22dp"
+        android:ems="10"
+        android:hint="@string/name"
+        android:inputType="textEmailAddress"
+        android:maxLines="1"
+        android:paddingHorizontal="10dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRegister" />
+
+    <EditText
         android:id="@+id/etEmail"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="54dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/border"
         android:elevation="22dp"
         android:ems="10"
@@ -46,43 +82,25 @@
         android:maxLines="1"
         android:paddingHorizontal="10dp"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/etPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="54dp"
-        android:background="@drawable/border"
-        android:elevation="22dp"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:paddingHorizontal="10dp"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="67dp"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="@color/white"
         android:clickable="true"
+        android:elevation="22dp"
         android:focusable="true"
         app:fabCustomSize="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvDesc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword"
         app:maxImageSize="36dp"
         app:srcCompat="@drawable/ic_baseline_arrow_forward_24"
         app:tint="#6E85B2" />
@@ -94,19 +112,19 @@
         android:layout_marginStart="108dp"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="24dp"
-        android:text="@string/dont_have_an_account"
+        android:text="@string/already_have_an_account"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvSignup"
+        app:layout_constraintEnd_toStartOf="@+id/tvSignIn"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/tvSignup"
+        android:id="@+id/tvSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="24dp"
-        android:text="@string/sign_up"
+        android:text="@string/sign_in"
         android:textColor="#6E85B2"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

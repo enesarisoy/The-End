@@ -3,6 +3,7 @@ package com.ns.theend.ui.login
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.ns.theend.R
@@ -37,10 +38,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
     private fun checkUser() {
 
         firebaseAuth.currentUser?.let {
-            findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
+//            findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
 
-        } ?: kotlin.run {
-            Toast.makeText(context, "Null", Toast.LENGTH_SHORT).show()
         }
     }
 
