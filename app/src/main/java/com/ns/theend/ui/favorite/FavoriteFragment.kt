@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import com.ns.theend.R
 import com.ns.theend.databinding.FragmentFavoriteBinding
 import com.ns.theend.ui.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(
     FragmentFavoriteBinding::inflate
 ) {

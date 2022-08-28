@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.View
 import com.ns.theend.databinding.FragmentPopularBinding
 import com.ns.theend.ui.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PopularFragment : BaseFragment<FragmentPopularBinding>(
     FragmentPopularBinding::inflate
 ) {

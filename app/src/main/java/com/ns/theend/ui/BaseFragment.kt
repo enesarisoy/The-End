@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.ns.theend.R
+import dagger.hilt.android.AndroidEntryPoint
 import java.lang.IllegalArgumentException
 
 abstract class BaseFragment<VB : ViewBinding>(

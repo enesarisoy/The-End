@@ -9,8 +9,9 @@ import com.ns.theend.R
 import com.ns.theend.databinding.FragmentRegisterBinding
 import com.ns.theend.ui.BaseFragment
 import com.ns.theend.utils.toast
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class RegisterFragment : BaseFragment<FragmentRegisterBinding>(
     FragmentRegisterBinding::inflate
 ) {
