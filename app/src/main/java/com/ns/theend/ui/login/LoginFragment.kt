@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.ns.theend.R
 import com.ns.theend.databinding.FragmentLoginBinding
 import com.ns.theend.ui.BaseFragment
+import com.ns.theend.utils.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,44 +22,23 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initClick()
         checkUser()
+        initClick()
 
     }
 
     private fun initClick() {
-        binding.tvSignup.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-        }
-        binding.floatingActionButton.setOnClickListener {
-            signIn()
+        binding.button.setOnClickListener {
+
+            val bottomFragment = BottomFragment()
+            bottomFragment.show(parentFragmentManager, "TAG")
         }
     }
 
     private fun checkUser() {
-
         firebaseAuth.currentUser?.let {
-//            findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
 
-        }
-    }
-
-    private fun signIn() {
-        val email = binding.etEmail.text.toString()
-        val pass = binding.etPassword.text.toString()
-
-        if (email.isNotEmpty() && pass.isNotEmpty()) {
-
-            firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
-                if (it.isSuccessful) {
-                    findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
-                } else {
-                    Toast.makeText(context, it.exception.toString(), Toast.LENGTH_SHORT).show()
-
-                }
-            }
-        } else {
-            Toast.makeText(context, "Empty fields are not allowed", Toast.LENGTH_SHORT).show()
         }
     }
 

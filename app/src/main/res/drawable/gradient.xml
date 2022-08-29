@@ -25,6 +25,13 @@
                 android:startColor="#423F3E"
                 android:type="linear" />-->
 
+            <gradient
+                android:angle="90"
+                android:endColor="@color/black"
+                android:centerColor="@android:color/transparent"
+                android:startColor="#000000" />
+
+
         </shape>
     </item>
 </selector>
