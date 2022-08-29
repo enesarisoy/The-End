@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/nowPlayingFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -53,4 +53,9 @@
             android:id="@+id/action_favoriteFragment_to_movieFragment"
             app:destination="@id/movieFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/nowPlayingFragment"
+        android:name="com.ns.theend.ui.movie.now_playing.NowPlayingFragment"
+        android:label="fragment_now_playing"
+        tools:layout="@layout/fragment_now_playing" />
 </navigation>

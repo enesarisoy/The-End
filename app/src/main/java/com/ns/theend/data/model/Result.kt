@@ -1,4 +1,4 @@
-package com.ns.theend.data.model.popular
+package com.ns.theend.data.model
 
 
 import com.google.gson.annotations.SerializedName

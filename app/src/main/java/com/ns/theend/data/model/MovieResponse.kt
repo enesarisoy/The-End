@@ -1,9 +1,9 @@
-package com.ns.theend.data.model.popular
+package com.ns.theend.data.model
 
 
 import com.google.gson.annotations.SerializedName
 
-data class Popular(
+data class MovieResponse(
     @SerializedName("page")
     val page: Int,
     @SerializedName("results")
