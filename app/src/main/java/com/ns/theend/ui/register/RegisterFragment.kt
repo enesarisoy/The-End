@@ -8,6 +8,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.ns.theend.R
 import com.ns.theend.databinding.FragmentRegisterBinding
 import com.ns.theend.ui.BaseFragment
+import com.ns.theend.ui.MainActivity
 import com.ns.theend.utils.toast
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,13 +27,18 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(
     }
 
     private fun initClick() {
-        binding.tvSignIn.setOnClickListener {
-            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+
+        binding.apply {
+            tvSignIn.setOnClickListener {
+                (activity as MainActivity).onBackPressed()
+            }
+
+            ivBack.setOnClickListener {
+                (activity as MainActivity).onBackPressed()
+            }
         }
 
-        binding.floatingActionButton.setOnClickListener {
-            signUp()
-        }
+
     }
 
     private fun signUp() {

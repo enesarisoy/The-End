@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/nowPlayingFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -13,33 +13,40 @@
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment"
-            app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_loginFragment_to_movieFragment"
             app:destination="@id/movieFragment"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_bottomFragment"
+            app:destination="@id/bottomFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.ns.theend.ui.register.RegisterFragment"
         android:label="fragment_register"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
         tools:layout="@layout/fragment_register">
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
         <action
             android:id="@+id/action_registerFragment_to_movieFragment"
-            app:destination="@id/movieFragment"
-            app:popUpTo="@id/registerFragment"
-            app:popUpToInclusive="true" />
+            app:destination="@id/movieFragment" />
     </fragment>
     <fragment
         android:id="@+id/movieFragment"
         android:name="com.ns.theend.ui.movie.MovieFragment"
         android:label="fragment_movie"
-        tools:layout="@layout/fragment_movie" >
+        tools:layout="@layout/fragment_movie">
         <action
             android:id="@+id/action_movieFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
@@ -48,14 +55,28 @@
         android:id="@+id/favoriteFragment"
         android:name="com.ns.theend.ui.favorite.FavoriteFragment"
         android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" >
+        tools:layout="@layout/fragment_favorite">
         <action
             android:id="@+id/action_favoriteFragment_to_movieFragment"
             app:destination="@id/movieFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/nowPlayingFragment"
-        android:name="com.ns.theend.ui.movie.now_playing.NowPlayingFragment"
-        android:label="fragment_now_playing"
-        tools:layout="@layout/fragment_now_playing" />
+    <dialog
+        android:id="@+id/bottomFragment"
+        android:name="com.ns.theend.ui.login.BottomFragment"
+        android:label="BottomFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
+        <action
+            android:id="@+id/action_bottomFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_bottomFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </dialog>
 </navigation>
