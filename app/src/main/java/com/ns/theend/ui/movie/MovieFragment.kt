@@ -27,7 +27,6 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initTabLayout()
 
         initObservers()
 
@@ -53,31 +52,4 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>(
         }*/
     }
 
-    private fun initTabLayout() {
-        val adapter = ViewPagerAdapter(parentFragmentManager, lifecycle)
-
-        binding.viewPager2.adapter = adapter
-
-        TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->
-            when (position) {
-                0 -> {
-                    tab.text = "Popular"
-                }
-                1 -> {
-                    tab.text = "Top Rated"
-
-                }
-                2 -> {
-                    tab.text = "Upcoming"
-
-                }
-                3 -> {
-                    tab.text = "Now Playing"
-
-                }
-            }
-
-        }.attach()
-
-    }
 }

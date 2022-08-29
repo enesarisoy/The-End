@@ -57,7 +57,7 @@ class BottomFragment() : BottomSheetDialogFragment() {
             firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
                 if (it.isSuccessful) {
                     dismiss()
-                    findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
+                    findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
                 } else {
                     context?.toast(it.exception.toString())
                 }

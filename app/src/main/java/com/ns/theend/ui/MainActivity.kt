@@ -58,12 +58,11 @@ class MainActivity : AppCompatActivity() {
                     binding.toolbar.makeVisibilityGone()
                 }
             }
-            R.id.movieFragment -> {
+            R.id.mainFragment -> {
 
                 binding.apply {
                     binding.bottomNavBar.makeVisible()
                     binding.toolbar.makeVisible()
-                    binding.ivLogOut.makeVisible()
                 }
 
             }
@@ -72,7 +71,6 @@ class MainActivity : AppCompatActivity() {
                 binding.apply {
                     bottomNavBar.makeVisible()
                     toolbar.makeVisible()
-                    ivLogOut.makeVisibilityGone()   //TODO visibility
 
                 }
             }

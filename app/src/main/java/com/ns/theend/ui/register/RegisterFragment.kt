@@ -55,7 +55,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(
             firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                 if (it.isSuccessful) {
                     context?.toast("Successfully created!")
-                    findNavController().navigate(R.id.action_registerFragment_to_movieFragment)
+                    findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
                 } else {
                     context?.toast(it.exception.toString())
 

@@ -18,13 +18,11 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
         <action
-            android:id="@+id/action_loginFragment_to_movieFragment"
-            app:destination="@id/movieFragment"
-            app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true" />
-        <action
             android:id="@+id/action_loginFragment_to_bottomFragment"
             app:destination="@id/bottomFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -39,17 +37,8 @@
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
         <action
-            android:id="@+id/action_registerFragment_to_movieFragment"
-            app:destination="@id/movieFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/movieFragment"
-        android:name="com.ns.theend.ui.movie.MovieFragment"
-        android:label="fragment_movie"
-        tools:layout="@layout/fragment_movie">
-        <action
-            android:id="@+id/action_movieFragment_to_favoriteFragment"
-            app:destination="@id/favoriteFragment" />
+            android:id="@+id/action_registerFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
@@ -57,8 +46,8 @@
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite">
         <action
-            android:id="@+id/action_favoriteFragment_to_movieFragment"
-            app:destination="@id/movieFragment" />
+            android:id="@+id/action_favoriteFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <dialog
         android:id="@+id/bottomFragment"
@@ -79,4 +68,13 @@
             android:id="@+id/action_bottomFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.ns.theend.ui.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
 </navigation>

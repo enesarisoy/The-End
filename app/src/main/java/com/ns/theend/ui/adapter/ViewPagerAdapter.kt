@@ -4,10 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.ns.theend.ui.movie.now_playing.NowPlayingFragment
-import com.ns.theend.ui.movie.popular.PopularFragment
-import com.ns.theend.ui.movie.top_rated.TopRatedFragment
-import com.ns.theend.ui.movie.upcoming.UpcomingFragment
+import com.ns.theend.ui.movie.MovieFragment
+import com.ns.theend.ui.tv.TvFragment
 
 class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(
@@ -15,24 +13,19 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     ) {
 
     override fun getItemCount(): Int {
-        return 4
+        return 2
     }
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> {
-                PopularFragment()
+                MovieFragment()
             }
             1 -> {
-                TopRatedFragment()
+                TvFragment()
             }
-            2 -> {
-                UpcomingFragment()
-            }
-            3 -> {
-                NowPlayingFragment()
-            }
-            else -> PopularFragment()
+
+            else -> MovieFragment()
         }
     }
 }
