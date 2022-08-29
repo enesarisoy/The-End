@@ -25,24 +25,19 @@ class BottomFragment() : BottomSheetDialogFragment() {
     ): View? {
         _binding = FragmentBottomSheetBinding.inflate(layoutInflater)
 
-        onClick()
         initClick()
 
 
         return binding.root
     }
 
-    private fun onClick() {
-        binding.tvSignUp.setOnClickListener {
-            dismiss()
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-        }
-    }
+
 
     private fun initClick() {
         binding.apply {
 
             tvSignUp.setOnClickListener {
+                dismiss()
                 findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
             }
 

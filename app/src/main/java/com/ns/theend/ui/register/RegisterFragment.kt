@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.ns.theend.R
 import com.ns.theend.databinding.FragmentRegisterBinding
@@ -23,6 +24,8 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(
         super.onViewCreated(view, savedInstanceState)
 
         initClick()
+
+
 
     }
 
