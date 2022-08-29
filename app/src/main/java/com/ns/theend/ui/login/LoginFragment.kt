@@ -22,50 +22,25 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        initClick()
-//        checkUser()
+        checkUser()
+        initClick()
 
+    }
+
+    private fun initClick() {
         binding.button.setOnClickListener {
 
-            var bottomFragment = BottomFragment()
+            val bottomFragment = BottomFragment()
             bottomFragment.show(parentFragmentManager, "TAG")
         }
     }
 
-    /* private fun initClick() {
-         binding.tvSignup.setOnClickListener {
-             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-         }
-         binding.floatingActionButton.setOnClickListener {
-             signIn()
-         }
-     }*/
-
     private fun checkUser() {
-
         firebaseAuth.currentUser?.let {
             findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
 
         }
     }
-
-    /* private fun signIn() {
-         val email = binding.etEmail.text.toString()
-         val pass = binding.etPassword.text.toString()
-
-         if (email.isNotEmpty() && pass.isNotEmpty()) {
-
-             firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
-                 if (it.isSuccessful) {
-                     findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
-                 } else {
-                     context?.toast(it.exception.toString())
-                 }
-             }
-         } else {
-             context?.toast("Empty fields are not allowed")
-         }
-     }*/
 
 
 }
