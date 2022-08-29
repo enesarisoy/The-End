@@ -25,24 +25,19 @@ class BottomFragment() : BottomSheetDialogFragment() {
     ): View? {
         _binding = FragmentBottomSheetBinding.inflate(layoutInflater)
 
-        onClick()
         initClick()
 
 
         return binding.root
     }
 
-    private fun onClick() {
-        binding.tvSignUp.setOnClickListener {
-            dismiss()
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-        }
-    }
+
 
     private fun initClick() {
         binding.apply {
 
             tvSignUp.setOnClickListener {
+                dismiss()
                 findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
             }
 
@@ -62,7 +57,7 @@ class BottomFragment() : BottomSheetDialogFragment() {
             firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
                 if (it.isSuccessful) {
                     dismiss()
-                    findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
+                    findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
                 } else {
                     context?.toast(it.exception.toString())
                 }

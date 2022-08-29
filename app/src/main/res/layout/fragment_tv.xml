@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1B1A17"
-    tools:context=".ui.movie.MovieFragment">
+    tools:context=".ui.tv.TvFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,32 +16,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginTop="22dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-
-
-            <TextView
-                android:id="@+id/tvUpcoming"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="22dp"
-                android:text="@string/upcoming"
-                android:textColor="@color/white"
-                android:textSize="25sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.jama.carouselview.CarouselView
-                android:id="@+id/ivUpcoming"
-                android:layout_width="350dp"
-                android:layout_height="200dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvUpcoming" />
 
             <TextView
                 android:id="@+id/tvTrending"

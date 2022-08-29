@@ -37,7 +37,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
 
     private fun checkUser() {
         firebaseAuth.currentUser?.let {
-            findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
 
         }
     }

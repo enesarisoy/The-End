@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.ns.theend.R
 import com.ns.theend.databinding.FragmentRegisterBinding
@@ -23,6 +24,8 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(
         super.onViewCreated(view, savedInstanceState)
 
         initClick()
+
+
 
     }
 
@@ -52,7 +55,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(
             firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                 if (it.isSuccessful) {
                     context?.toast("Successfully created!")
-                    findNavController().navigate(R.id.action_registerFragment_to_movieFragment)
+                    findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
                 } else {
                     context?.toast(it.exception.toString())
 
