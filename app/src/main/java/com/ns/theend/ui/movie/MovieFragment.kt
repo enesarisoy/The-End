@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayoutMediator
 import com.jama.carouselview.enums.IndicatorAnimationType
@@ -16,6 +17,7 @@ import com.jama.carouselview.enums.OffsetType
 import com.ns.theend.R
 import com.ns.theend.databinding.FragmentMovieBinding
 import com.ns.theend.ui.BaseFragment
+import com.ns.theend.ui.MainFragmentDirections
 import com.ns.theend.ui.adapter.ViewPagerAdapter
 import com.ns.theend.ui.movie.adapter.PopularAdapter
 import com.ns.theend.ui.movie.adapter.TopRatedAdapter
@@ -42,7 +44,30 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>(
 
         initRecyclerView()
         initObservers()
+        initClick()
 
+    }
+
+    private fun initClick() {
+
+        trendingAdapter.setOnItemClickListener {
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToMovieDetailFragment(it)
+
+            )
+        }
+
+        topRatedAdapter.setOnItemClickListener {
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToMovieDetailFragment(it)
+            )
+        }
+
+        popularAdapter.setOnItemClickListener {
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToMovieDetailFragment(it)
+            )
+        }
     }
 
     private fun initObservers() {

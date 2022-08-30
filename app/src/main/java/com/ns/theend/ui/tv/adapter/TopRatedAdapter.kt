@@ -32,16 +32,25 @@ class TopRatedAdapter : RecyclerView.Adapter<TopRatedAdapter.TopRatedViewHolder>
 
 
     override fun onBindViewHolder(holder: TopRatedViewHolder, position: Int) {
-        val trend = moviesList[position]
+        val topRated = moviesList[position]
 
         holder.binding.apply {
-            tvTrendingTitle.text = trend.name
-            ivTrending.downloadImage("https://image.tmdb.org/t/p/w500/${trend.posterPath}")
+            tvTrendingTitle.text = topRated.name
+            ivTrending.downloadImage("https://image.tmdb.org/t/p/w500/${topRated.posterPath}")
 
+        }
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.let { it(topRated) }
         }
     }
 
     override fun getItemCount(): Int = moviesList.size
+
+    private var onItemClickListener: ((TvResult) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (TvResult) -> Unit) {
+        onItemClickListener = listener
+    }
 
     fun setData(newData: TvResponse) {
         val diffUtil = MyDiffUtil(moviesList, newData.tvResults)

@@ -3,7 +3,6 @@ package com.ns.theend.ui.tv
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ns.theend.data.model.MovieResponse
 import com.ns.theend.data.model.tv.TvResponse
 import com.ns.theend.data.repository.NetworkRepository
 import com.ns.theend.utils.Resource

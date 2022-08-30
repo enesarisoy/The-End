@@ -1,11 +1,8 @@
 package com.ns.theend.data.repository
 
-import com.ns.theend.data.model.MovieResponse
+import com.ns.theend.data.model.movie.MovieResponse
 import com.ns.theend.data.model.tv.TvResponse
 import com.ns.theend.data.remote.ServiceApi
-import com.ns.theend.utils.Constants.API_KEY
-import com.ns.theend.utils.Resource
-import com.ns.theend.utils.Utils.safeApiCall
 import retrofit2.Response
 import javax.inject.Inject
 

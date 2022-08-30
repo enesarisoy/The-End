@@ -76,5 +76,35 @@
         <action
             android:id="@+id/action_mainFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_tvDetailFragment"
+            app:destination="@id/tvDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.ns.theend.ui.detail.MovieDetailFragment"
+        android:label="fragment_movie_detail"
+        tools:layout="@layout/fragment_movie_detail" >
+        <action
+            android:id="@+id/action_movieDetailFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <argument
+            android:name="movie"
+            app:argType="com.ns.theend.data.model.movie.Result" />
+    </fragment>
+    <fragment
+        android:id="@+id/tvDetailFragment"
+        android:name="com.ns.theend.ui.detail.TvDetailFragment"
+        android:label="fragment_tv_detail"
+        tools:layout="@layout/fragment_tv_detail" >
+        <action
+            android:id="@+id/action_tvDetailFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <argument
+            android:name="tv"
+            app:argType="com.ns.theend.data.model.tv.TvResult" />
     </fragment>
 </navigation>

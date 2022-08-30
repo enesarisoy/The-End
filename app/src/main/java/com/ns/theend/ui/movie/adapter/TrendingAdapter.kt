@@ -2,11 +2,10 @@ package com.ns.theend.ui.movie.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.ns.theend.data.model.MovieResponse
-import com.ns.theend.data.model.Result
+import com.ns.theend.data.model.movie.MovieResponse
+import com.ns.theend.data.model.movie.Result
 import com.ns.theend.databinding.ItemTrendingBinding
 import com.ns.theend.utils.MyDiffUtil
 import com.ns.theend.utils.downloadImage
@@ -52,9 +51,18 @@ class TrendingAdapter : RecyclerView.Adapter<TrendingAdapter.TrendingViewHolder>
             ivTrending.downloadImage("https://image.tmdb.org/t/p/w500/${trend.posterPath}")
 
         }
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.let { it(trend) }
+        }
     }
 
     override fun getItemCount(): Int = moviesList.size
+
+    private var onItemClickListener: ((Result) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (Result) -> Unit) {
+        onItemClickListener = listener
+    }
 
     fun setData(newData: MovieResponse) {
         val diffUtil = MyDiffUtil(moviesList, newData.results)

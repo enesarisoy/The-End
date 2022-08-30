@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.ns.theend.data.model.MovieResponse
 import com.ns.theend.data.model.tv.TvResponse
 import com.ns.theend.data.model.tv.TvResult
 import com.ns.theend.databinding.ItemTrendingBinding
@@ -40,9 +39,18 @@ class TrendingAdapter : RecyclerView.Adapter<TrendingAdapter.TrendingViewHolder>
             ivTrending.downloadImage("https://image.tmdb.org/t/p/w500/${trend.posterPath}")
 
         }
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.let { it(trend) }
+        }
     }
 
     override fun getItemCount(): Int = moviesList.size
+
+    private var onItemClickListener: ((TvResult) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (TvResult) -> Unit) {
+        onItemClickListener = listener
+    }
 
     fun setData(newData: TvResponse) {
         val diffUtil = MyDiffUtil(moviesList, newData.tvResults)

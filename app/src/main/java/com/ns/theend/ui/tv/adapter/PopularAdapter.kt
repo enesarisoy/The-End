@@ -32,16 +32,27 @@ class PopularAdapter : RecyclerView.Adapter<PopularAdapter.PopularViewHolder>() 
 
 
     override fun onBindViewHolder(holder: PopularViewHolder, position: Int) {
-        val trend = moviesList[position]
+        val popular = moviesList[position]
 
         holder.binding.apply {
-            tvTrendingTitle.text = trend.name
-            ivTrending.downloadImage("https://image.tmdb.org/t/p/w500/${trend.posterPath}")
+            tvTrendingTitle.text = popular.name
+            ivTrending.downloadImage("https://image.tmdb.org/t/p/w500/${popular.posterPath}")
 
         }
+
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.let { it(popular) }
+        }
+
     }
 
     override fun getItemCount(): Int = moviesList.size
+
+    private var onItemClickListener: ((TvResult) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (TvResult) -> Unit) {
+        onItemClickListener = listener
+    }
 
     fun setData(newData: TvResponse) {
         val diffUtil = MyDiffUtil(moviesList, newData.tvResults)

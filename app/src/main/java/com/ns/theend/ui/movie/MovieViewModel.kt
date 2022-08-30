@@ -3,13 +3,11 @@ package com.ns.theend.ui.movie
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ns.theend.data.model.MovieResponse
+import com.ns.theend.data.model.movie.MovieResponse
 import com.ns.theend.data.repository.NetworkRepository
 import com.ns.theend.utils.Resource
-import com.ns.theend.utils.Utils
 import com.ns.theend.utils.Utils.handleResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

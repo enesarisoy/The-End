@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ns.theend.R
 import com.ns.theend.databinding.FragmentTvBinding
 import com.ns.theend.ui.BaseFragment
+import com.ns.theend.ui.MainFragmentDirections
 import com.ns.theend.ui.tv.adapter.PopularAdapter
 import com.ns.theend.ui.tv.adapter.TopRatedAdapter
 import com.ns.theend.ui.tv.adapter.TrendingAdapter
@@ -33,6 +35,30 @@ class TvFragment : BaseFragment<FragmentTvBinding>(
 
         initRecyclerView()
         initObservers()
+        initOnClick()
+    }
+
+    private fun initOnClick() {
+
+        trendingAdapter.setOnItemClickListener {
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToTvDetailFragment(it)
+            )
+        }
+
+        popularAdapter.setOnItemClickListener {
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToTvDetailFragment(it)
+            )
+        }
+
+        topRatedAdapter.setOnItemClickListener {
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToTvDetailFragment(it)
+            )
+        }
+
+
     }
 
     private fun initObservers() {
@@ -40,7 +66,7 @@ class TvFragment : BaseFragment<FragmentTvBinding>(
         viewModel.getPopularTv(API_KEY)
         viewModel.getTopRatedTv(API_KEY)
 
-        viewModel.trendingTvResponse.observe(viewLifecycleOwner){ response ->
+        viewModel.trendingTvResponse.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Success -> {
                     response.data?.let {
@@ -56,7 +82,7 @@ class TvFragment : BaseFragment<FragmentTvBinding>(
 
         }
 
-        viewModel.popularTvResponse.observe(viewLifecycleOwner){ response ->
+        viewModel.popularTvResponse.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Success -> {
                     response.data?.let {
@@ -71,7 +97,7 @@ class TvFragment : BaseFragment<FragmentTvBinding>(
             }
 
         }
-        viewModel.topRatedTvResponse.observe(viewLifecycleOwner){ response ->
+        viewModel.topRatedTvResponse.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Success -> {
                     response.data?.let {

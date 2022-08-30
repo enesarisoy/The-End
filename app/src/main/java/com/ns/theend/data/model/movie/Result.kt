@@ -1,8 +1,11 @@
-package com.ns.theend.data.model
+package com.ns.theend.data.model.movie
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Result(
     @SerializedName("id")
     val id: Int,
@@ -24,4 +27,4 @@ data class Result(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-)
+): Parcelable
