@@ -39,6 +39,10 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(
             ivBack.setOnClickListener {
                 (activity as MainActivity).onBackPressed()
             }
+
+            btnLogin.setOnClickListener {
+                signUp()
+            }
         }
 
 
