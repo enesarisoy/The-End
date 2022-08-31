@@ -3,7 +3,7 @@ package com.ns.theend.data.model.movie_detail
 
 import com.google.gson.annotations.SerializedName
 
-data class MovieDetail(
+data class MovieDetailResponse(
     @SerializedName("budget")
     val budget: Int,
     @SerializedName("genres")
