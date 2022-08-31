@@ -2,6 +2,7 @@ package com.ns.theend.data.repository
 
 import com.ns.theend.data.model.CreditsResponse
 import com.ns.theend.data.model.movie.MovieResponse
+import com.ns.theend.data.model.movie_detail.MovieDetailResponse
 import com.ns.theend.data.model.tv.TvDetailResponse
 import com.ns.theend.data.model.tv.TvResponse
 import com.ns.theend.data.remote.ServiceApi
@@ -39,16 +40,30 @@ class NetworkRepository @Inject constructor(private val serviceApi: ServiceApi) 
     }
 
     suspend fun getDetailTv(
-        movieId: Int,
+        tvId: Int,
         apiKey: String
     ): Response<TvDetailResponse> {
-        return serviceApi.getDetailTv(movieId, apiKey)
+        return serviceApi.getDetailTv(tvId, apiKey)
+    }
+
+    suspend fun getDetailMovie(
+        movieId: Int,
+        apiKey: String
+    ): Response<MovieDetailResponse> {
+        return serviceApi.getDetailMovie(movieId, apiKey)
     }
 
     suspend fun getCreditsTv(
+        tvId: Int,
+        apiKey: String
+    ): Response<CreditsResponse> {
+        return serviceApi.getCreditsTv(tvId, apiKey)
+    }
+
+    suspend fun getCreditsMovie(
         movieId: Int,
         apiKey: String
     ): Response<CreditsResponse> {
-        return serviceApi.getCreditsTv(movieId, apiKey)
+        return serviceApi.getCreditsMovie(movieId, apiKey)
     }
 }

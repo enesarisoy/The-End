@@ -27,4 +27,12 @@ data class Result(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-): Parcelable
+) : Parcelable {
+    override fun hashCode(): Int {
+        var result = id.hashCode()
+        if(posterPath.isNullOrEmpty()){
+            result = 31 * result + posterPath.hashCode()
+        }
+        return result
+    }
+}

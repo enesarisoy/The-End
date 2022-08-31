@@ -2,6 +2,7 @@ package com.ns.theend.data.remote
 
 import com.ns.theend.data.model.CreditsResponse
 import com.ns.theend.data.model.movie.MovieResponse
+import com.ns.theend.data.model.movie_detail.MovieDetailResponse
 import com.ns.theend.data.model.tv.TvDetailResponse
 import com.ns.theend.data.model.tv.TvResponse
 import retrofit2.Response
@@ -60,8 +61,20 @@ interface ServiceApi {
         @Query("api_key") apikey: String
     ): Response<TvDetailResponse>
 
+    @GET("movie/{id}")
+    suspend fun getDetailMovie(
+        @Path("id") id: Int,
+        @Query("api_key") apikey: String
+    ): Response<MovieDetailResponse>
+
     @GET("tv/{id}/credits")
     suspend fun getCreditsTv(
+        @Path("id") id: Int,
+        @Query("api_key") apikey: String
+    ): Response<CreditsResponse>
+
+    @GET("movie/{id}/credits")
+    suspend fun getCreditsMovie(
         @Path("id") id: Int,
         @Query("api_key") apikey: String
     ): Response<CreditsResponse>
