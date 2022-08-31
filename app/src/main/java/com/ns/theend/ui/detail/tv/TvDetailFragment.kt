@@ -58,6 +58,18 @@ class TvDetailFragment() : BaseFragment<FragmentTvDetailBinding>(
                             tvGenre.text = it.genres[0].name
                             ivTv.downloadImage(IMAGE_URL + args.tv.posterPath)
 
+                            tvOriginalTitleAboutResponse.text = it.originalName
+                            tvReleaseDateAboutResponse.text = it.firstAirDate
+                            tvPopularityAboutResponse.text = it.popularity.toString()
+                            tvStatusAboutResponse.text = it.status
+
+
+                            //TODO
+                            for (i in 0..it.genres.size) {
+                                tvGenreAboutResponse.text = it.genres[i].name
+                            }
+
+
                         }
 
                     }

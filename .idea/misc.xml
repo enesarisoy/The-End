@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/ariso/AndroidStudioProjects/TheEnd/app/src/main/res/drawable/border.xml" value="0.122" />
         <entry key="..\:/Users/ariso/AndroidStudioProjects/TheEnd/app/src/main/res/drawable/gradient.xml" value="0.122" />
+        <entry key="..\:/Users/ariso/AndroidStudioProjects/TheEnd/app/src/main/res/drawable/gradient_background.xml" value="0.122" />
         <entry key="..\:/Users/ariso/AndroidStudioProjects/TheEnd/app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.122" />
         <entry key="..\:/Users/ariso/AndroidStudioProjects/TheEnd/app/src/main/res/drawable/ic_baseline_movie_24.xml" value="0.122" />
         <entry key="..\:/Users/ariso/AndroidStudioProjects/TheEnd/app/src/main/res/drawable/round_button.xml" value="0.122" />
@@ -28,7 +29,7 @@
         <entry key="..\:/Users/ariso/AndroidStudioProjects/TheEnd/app/src/main/res/layout/fragment_register.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/ariso/AndroidStudioProjects/TheEnd/app/src/main/res/layout/fragment_top_rated.xml" value="0.36015625" />
         <entry key="..\:/Users/ariso/AndroidStudioProjects/TheEnd/app/src/main/res/layout/fragment_tv.xml" value="0.20863616930312098" />
-        <entry key="..\:/Users/ariso/AndroidStudioProjects/TheEnd/app/src/main/res/layout/fragment_tv_detail.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/ariso/AndroidStudioProjects/TheEnd/app/src/main/res/layout/fragment_tv_detail.xml" value="0.2" />
         <entry key="..\:/Users/ariso/AndroidStudioProjects/TheEnd/app/src/main/res/layout/fragment_upcoming.xml" value="0.22402736212056434" />
         <entry key="..\:/Users/ariso/AndroidStudioProjects/TheEnd/app/src/main/res/layout/item_carousel.xml" value="0.20778110303548525" />
         <entry key="..\:/Users/ariso/AndroidStudioProjects/TheEnd/app/src/main/res/layout/item_cast.xml" value="0.20778110303548525" />

@@ -17,7 +17,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp">
 
 
             <ImageView
@@ -139,6 +140,134 @@
                 android:textSize="35sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rvCast" />
+
+            <TextView
+                android:id="@+id/tvOriginalTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="Original Title: "
+                android:textColor="#FF9F29"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAbout" />
+
+            <TextView
+                android:id="@+id/tvOriginalTitleAboutResponse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/tvOriginalTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvAbout"
+                tools:text="Peter On Holidays" />
+
+
+            <TextView
+                android:id="@+id/tvGenreAbout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="Genre: "
+                android:textColor="#FF9F29"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvOriginalTitle" />
+
+            <TextView
+                android:id="@+id/tvGenreAboutResponse"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:maxLines="3"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvOriginalTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvOriginalTitleAboutResponse"
+                tools:text="Action, Drama, Science Fiction, Fantasy" />
+
+            <TextView
+                android:id="@+id/tvReleaseDateAbout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="Release Date: "
+                android:textColor="#FF9F29"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvGenreAboutResponse" />
+
+            <TextView
+                android:id="@+id/tvReleaseDateAboutResponse"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvOriginalTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvGenreAboutResponse"
+                tools:text="22/11/2021" />
+
+            <TextView
+                android:id="@+id/tvPopularityAbout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="Popularity: "
+                android:textColor="#FF9F29"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvReleaseDateAbout" />
+
+            <TextView
+                android:id="@+id/tvPopularityAboutResponse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/tvOriginalTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvReleaseDateAboutResponse"
+                tools:text="22/11/2021" />
+
+            <TextView
+                android:id="@+id/tvStatusAbout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="Status: "
+                android:textColor="#FF9F29"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPopularityAbout" />
+
+            <TextView
+                android:id="@+id/tvStatusAboutResponse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/tvOriginalTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvPopularityAboutResponse"
+                tools:text="22/11/2021" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
