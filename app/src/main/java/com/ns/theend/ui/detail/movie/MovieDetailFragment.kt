@@ -1,16 +1,14 @@
 package com.ns.theend.ui.detail.movie
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ns.theend.databinding.FragmentMovieDetailBinding
 import com.ns.theend.ui.BaseFragment
 import com.ns.theend.ui.detail.DetailViewModel
-import com.ns.theend.ui.detail.tv.adapter.TvCastAdapter
+import com.ns.theend.ui.detail.movie.adapter.MovieCastAdapter
 import com.ns.theend.utils.Constants.API_KEY
 import com.ns.theend.utils.Constants.IMAGE_BASE_URL
 import com.ns.theend.utils.Resource
