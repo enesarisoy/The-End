@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
                 binding.apply {
                     binding.bottomNavBar.makeVisible()
-                    binding.toolbar.makeVisible()
+                    binding.toolbar.makeVisibilityGone()
                 }
 
             }

@@ -85,7 +85,7 @@
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
-        android:name="com.ns.theend.ui.detail.MovieDetailFragment"
+        android:name="com.ns.theend.ui.detail.movie.MovieDetailFragment"
         android:label="fragment_movie_detail"
         tools:layout="@layout/fragment_movie_detail" >
         <action
@@ -97,7 +97,7 @@
     </fragment>
     <fragment
         android:id="@+id/tvDetailFragment"
-        android:name="com.ns.theend.ui.detail.TvDetailFragment"
+        android:name="com.ns.theend.ui.detail.tv.TvDetailFragment"
         android:label="fragment_tv_detail"
         tools:layout="@layout/fragment_tv_detail" >
         <action

@@ -1,4 +1,4 @@
-package com.ns.theend.ui.detail
+package com.ns.theend.ui.detail.movie
 
 import android.os.Bundle
 import android.view.LayoutInflater
