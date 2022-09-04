@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -22,6 +23,7 @@ import com.ns.theend.utils.Resource
 import com.ns.theend.utils.downloadImage
 import com.ns.theend.utils.toast
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.NumberFormat
 
 @AndroidEntryPoint
 class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>(
@@ -31,7 +33,10 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>(
     private val args: MovieDetailFragmentArgs by navArgs()
     private val viewModel: DetailViewModel by viewModels()
     private lateinit var castAdapter: MovieCastAdapter
-    private var firebaseDb: FirebaseDatabase = FirebaseDatabase.getInstance("https://the-end-3fdda-default-rtdb.europe-west1.firebasedatabase.app")
+    private var firebaseDb: FirebaseDatabase =
+        FirebaseDatabase.getInstance("https://the-end-3fdda-default-rtdb.europe-west1.firebasedatabase.app")
+    private var firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
+    private var uid: String = FirebaseAuth.getInstance().currentUser?.uid.toString()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -57,14 +62,20 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>(
                             Log.e("Deneme", it.id.toString())
                             tvName.text = it.title
                             tvDescription.text = it.overview
-                            tvYear.text = it.releaseDate
+                            tvYear.text = it.releaseDate.substring(0, 4)
                             tvStar.text = it.voteAverage.toString()
                             tvOriginalTitleAboutResponse.text = it.originalTitle
-                            //TODO split revenue
-                            tvRevenueAboutResponse.text = it.revenue.toString()
+
+                            tvRevenueAboutResponse.text =
+                                NumberFormat.getIntegerInstance().format(it.revenue)
+                                    .replace(",", ".")
+
                             tvReleaseDateAboutResponse.text = it.releaseDate
                             tvStatusAboutResponse.text = it.status
-                            tvVoteAboutResponse.text = it.voteCount.toString()
+
+                            tvVoteAboutResponse.text =
+                                NumberFormat.getIntegerInstance().format(it.voteCount)
+                                    .replace(",", ".")
 
                             ivMovie.downloadImage(IMAGE_BASE_URL + it.posterPath)
                             //TODO
@@ -120,7 +131,10 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>(
 
     private fun initOnClick() {
         binding.ivStar.setOnClickListener {
-            firebaseDb.getReference("movie").push().child("movie_id").setValue(args.movie.id)
+//            firebaseDb.getReference("movie").push().child("movie_id").setValue(args.movie.id)
+//            firebaseDb.reference.child("movie_id").setValue(args.movie.id)
+            firebaseDb.getReference("Users").child(uid).child("movie").push()
+                .setValue(args.movie.id)
 
 //            firebaseDb.reference.child("movie").child("id").setValue(args.movie.id)
 //            checkData()
