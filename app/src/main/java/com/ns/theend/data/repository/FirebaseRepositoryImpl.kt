@@ -26,8 +26,8 @@ class FirebaseRepositoryImpl @Inject constructor(
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         val result = task.result
-                        result?.let {
-                            val map: Map<String, String> = it.value as Map<String, String>
+                        result?.let { result ->
+                            val map: Map<String, String> = result.value as Map<String, String>
                             movieIdList = map.values.toList()
                             Log.e("Denemee", movieIdList.toString())
                         }
@@ -36,6 +36,8 @@ class FirebaseRepositoryImpl @Inject constructor(
                     }
                 }.addOnFailureListener { exception ->
                     Log.e("Exception", exception.toString())
+                }.addOnSuccessListener { success ->
+                    Log.e("Exception", success.toString())
                 }
         }
         return movieIdList
