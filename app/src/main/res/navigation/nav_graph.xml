@@ -48,6 +48,12 @@
         <action
             android:id="@+id/action_favoriteFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_favoriteFragment_to_movieFavoriteFragment"
+            app:destination="@id/movieFavoriteFragment" />
+        <action
+            android:id="@+id/action_favoriteFragment_to_tvFavoriteFragment"
+            app:destination="@id/tvFavoriteFragment" />
     </fragment>
     <dialog
         android:id="@+id/bottomFragment"
@@ -106,5 +112,23 @@
         <argument
             android:name="tv"
             app:argType="com.ns.theend.data.model.tv.TvResult" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieFavoriteFragment"
+        android:name="com.ns.theend.ui.movie.MovieFavoriteFragment"
+        android:label="fragment_movie_favorite"
+        tools:layout="@layout/fragment_movie_favorite" >
+        <action
+            android:id="@+id/action_movieFavoriteFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tvFavoriteFragment"
+        android:name="com.ns.theend.ui.tv.TvFavoriteFragment"
+        android:label="fragment_tv_favorite"
+        tools:layout="@layout/fragment_tv_favorite" >
+        <action
+            android:id="@+id/action_tvFavoriteFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
     </fragment>
 </navigation>

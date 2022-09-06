@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
+import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.ns.theend.data.model.movie_detail.MovieDetailResponse
 import com.ns.theend.databinding.FragmentFavoriteBinding
 import com.ns.theend.ui.BaseFragment
+import com.ns.theend.ui.adapter.ViewPagerAdapter
+import com.ns.theend.ui.adapter.ViewPagerAdapterFavorite
 import com.ns.theend.ui.movie.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -30,13 +33,35 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(
         super.onViewCreated(view, savedInstanceState)
 
 
-        uid = firebaseAuth.currentUser?.uid.toString()
+        initTabLayout()
+
+       /* uid = firebaseAuth.currentUser?.uid.toString()
         firebaseDb.getReference("Users").child("movie")
 
         if (uid.isNotEmpty()) {
             getUserData()
-        }
+        }*/
 
+
+    }
+
+    private fun initTabLayout() {
+        val adapter = ViewPagerAdapterFavorite(childFragmentManager, lifecycle)
+
+        binding.viewPager2.adapter = adapter
+
+        TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->
+            when (position) {
+                0 -> {
+                    tab.text = "Movie"
+                }
+                1 -> {
+                    tab.text = "TV"
+
+                }
+            }
+
+        }.attach()
 
     }
 
