@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.ns.theend.R
+import com.ns.theend.data.repository.FirebaseRepository
+import com.ns.theend.data.repository.FirebaseRepositoryImpl
 import com.ns.theend.databinding.ActivityMainBinding
 import com.ns.theend.utils.makeVisibilityGone
 import com.ns.theend.utils.makeVisible
@@ -19,11 +22,19 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    lateinit var firebaseViewModel: FirebaseViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
+
+      
+
+        /* firebaseViewModel = ViewModelProvider(
+             this,
+             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
+         )[FirebaseViewModel::class.java]*/
         setContentView(binding.root)
 
 

@@ -63,7 +63,7 @@ class TvDetailFragment() : BaseFragment<FragmentTvDetailBinding>(
                             tvPopularityAboutResponse.text = it.popularity.toString()
                             tvStatusAboutResponse.text = it.status
 
-
+                            //TODO point between textviews
                             //TODO
                             for (i in 0..it.genres.size) {
                                 tvGenreAboutResponse.text = it.genres[i].name
