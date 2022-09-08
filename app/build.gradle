@@ -92,4 +92,10 @@ dependencies {
 
     //Background Zoom
     implementation "com.flaviofaria:kenburnsview:1.0.7"
+
+    //Paging
+    implementation "androidx.paging:paging-runtime:$paging_version"
+
+    // Flow
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$flow_version"
 }

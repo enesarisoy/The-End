@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ns.theend.data.model.tv.TvResponse
 import com.ns.theend.data.model.tv.TvResult
-import com.ns.theend.databinding.ItemTrendingBinding
+import com.ns.theend.databinding.ItemListBinding
+import com.ns.theend.utils.Constants.IMAGE_BASE_URL
 import com.ns.theend.utils.MyDiffUtil
 import com.ns.theend.utils.downloadImage
 
@@ -15,7 +16,7 @@ class PopularAdapter : RecyclerView.Adapter<PopularAdapter.PopularViewHolder>() 
     private var moviesList = emptyList<TvResult>()
 
 
-    inner class PopularViewHolder(val binding: ItemTrendingBinding) :
+    inner class PopularViewHolder(val binding: ItemListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
 
@@ -23,7 +24,7 @@ class PopularAdapter : RecyclerView.Adapter<PopularAdapter.PopularViewHolder>() 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularViewHolder =
         PopularViewHolder(
-            ItemTrendingBinding.inflate(
+            ItemListBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -36,7 +37,7 @@ class PopularAdapter : RecyclerView.Adapter<PopularAdapter.PopularViewHolder>() 
 
         holder.binding.apply {
             tvTrendingTitle.text = popular.name
-            ivTrending.downloadImage("https://image.tmdb.org/t/p/w500/${popular.posterPath}")
+            ivTrending.downloadImage(IMAGE_BASE_URL + popular.posterPath)
 
         }
 

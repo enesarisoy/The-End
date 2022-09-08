@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ns.theend.data.model.movie.MovieResponse
 import com.ns.theend.data.model.movie.Result
-import com.ns.theend.databinding.ItemFavoriteBinding
+import com.ns.theend.databinding.ItemViewAllBinding
 import com.ns.theend.utils.MyDiffUtil
 
 class MovieFavoriteAdapter :
@@ -14,14 +14,14 @@ class MovieFavoriteAdapter :
 
     private var favoriteList = emptyList<String>()
 
-    inner class FavoriteViewHolder(val binding: ItemFavoriteBinding) :
+    inner class FavoriteViewHolder(val binding: ItemViewAllBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder =
         FavoriteViewHolder(
-            ItemFavoriteBinding.inflate(
+            ItemViewAllBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent, false
             )

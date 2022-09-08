@@ -88,6 +88,9 @@
         <action
             android:id="@+id/action_mainFragment_to_tvDetailFragment"
             app:destination="@id/tvDetailFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_viewAllFragment"
+            app:destination="@id/viewAllFragment" />
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
@@ -100,6 +103,9 @@
         <argument
             android:name="movie"
             app:argType="com.ns.theend.data.model.movie.Result" />
+        <action
+            android:id="@+id/action_movieDetailFragment_to_viewAllFragment"
+            app:destination="@id/viewAllFragment" />
     </fragment>
     <fragment
         android:id="@+id/tvDetailFragment"
@@ -112,6 +118,9 @@
         <argument
             android:name="tv"
             app:argType="com.ns.theend.data.model.tv.TvResult" />
+        <action
+            android:id="@+id/action_tvDetailFragment_to_viewAllFragment"
+            app:destination="@id/viewAllFragment" />
     </fragment>
     <fragment
         android:id="@+id/movieFavoriteFragment"
@@ -130,5 +139,24 @@
         <action
             android:id="@+id/action_tvFavoriteFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewAllFragment"
+        android:name="com.ns.theend.ui.all.ViewAllFragment"
+        android:label="fragment_movie_view_all"
+        tools:layout="@layout/fragment_movie_view_all" >
+        <action
+            android:id="@+id/action_viewAllFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <argument
+            android:name="fragment"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_viewAllFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+        <action
+            android:id="@+id/action_viewAllFragment_to_tvDetailFragment"
+            app:destination="@id/tvDetailFragment" />
     </fragment>
 </navigation>

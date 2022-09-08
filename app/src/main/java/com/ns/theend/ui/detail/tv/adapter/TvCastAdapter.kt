@@ -11,7 +11,7 @@ import com.ns.theend.data.model.movie.Result
 import com.ns.theend.data.model.tv.TvDetailResponse
 import com.ns.theend.data.model.tv.TvResult
 import com.ns.theend.databinding.ItemCastBinding
-import com.ns.theend.databinding.ItemTrendingBinding
+import com.ns.theend.utils.Constants.IMAGE_BASE_URL
 import com.ns.theend.utils.MyDiffUtil
 import com.ns.theend.utils.downloadImage
 
@@ -41,7 +41,7 @@ class TvCastAdapter : RecyclerView.Adapter<TvCastAdapter.TvCastViewHolder>() {
 
         holder.binding.apply {
             tvCastName.text = cast.name
-            ivCast.downloadImage("https://image.tmdb.org/t/p/w500/${cast.profilePath}")
+            ivCast.downloadImage(IMAGE_BASE_URL + cast.profilePath)
 
         }
        /* holder.itemView.setOnClickListener {

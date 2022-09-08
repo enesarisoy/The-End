@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ns.theend.data.model.movie.MovieResponse
 import com.ns.theend.data.model.movie.Result
-import com.ns.theend.databinding.ItemTrendingBinding
+import com.ns.theend.databinding.ItemListBinding
+import com.ns.theend.utils.Constants.IMAGE_BASE_URL
 import com.ns.theend.utils.MyDiffUtil
 import com.ns.theend.utils.downloadImage
 
@@ -15,7 +16,7 @@ class TrendingAdapter : RecyclerView.Adapter<TrendingAdapter.TrendingViewHolder>
     private var moviesList = emptyList<Result>()
 
 
-    inner class TrendingViewHolder(val binding: ItemTrendingBinding) :
+    inner class TrendingViewHolder(val binding: ItemListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
             
@@ -35,7 +36,7 @@ class TrendingAdapter : RecyclerView.Adapter<TrendingAdapter.TrendingViewHolder>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrendingViewHolder =
         TrendingViewHolder(
-            ItemTrendingBinding.inflate(
+            ItemListBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -48,7 +49,7 @@ class TrendingAdapter : RecyclerView.Adapter<TrendingAdapter.TrendingViewHolder>
         
         holder.binding.apply { 
             tvTrendingTitle.text = trend.title
-            ivTrending.downloadImage("https://image.tmdb.org/t/p/w500/${trend.posterPath}")
+            ivTrending.downloadImage(IMAGE_BASE_URL + trend.posterPath)
 
         }
         holder.itemView.setOnClickListener {

@@ -11,7 +11,7 @@ import com.ns.theend.ui.BaseFragment
 import com.ns.theend.ui.detail.DetailViewModel
 import com.ns.theend.ui.detail.tv.adapter.TvCastAdapter
 import com.ns.theend.utils.Constants.API_KEY
-import com.ns.theend.utils.Constants.IMAGE_URL
+import com.ns.theend.utils.Constants.IMAGE_BASE_URL
 import com.ns.theend.utils.Resource
 import com.ns.theend.utils.downloadImage
 import com.ns.theend.utils.toast
@@ -56,7 +56,7 @@ class TvDetailFragment() : BaseFragment<FragmentTvDetailBinding>(
                             tvEpisodeCount.text =
                                 getString(R.string.number_of_episodes, it.numberOfEpisodes)
                             tvGenre.text = it.genres[0].name
-                            ivTv.downloadImage(IMAGE_URL + args.tv.posterPath)
+                            ivTv.downloadImage(IMAGE_BASE_URL + args.tv.posterPath)
 
                             tvOriginalTitleAboutResponse.text = it.originalName
                             tvReleaseDateAboutResponse.text = it.firstAirDate
