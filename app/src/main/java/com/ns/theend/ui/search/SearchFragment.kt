@@ -43,6 +43,11 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
                         SearchFragmentDirections.actionSearchFragmentToMovieDetailFragment(null, it)
                     )
                 }
+                "tv" -> {
+                    findNavController().navigate(
+                        SearchFragmentDirections.actionSearchFragmentToTvDetailFragment(null, it)
+                    )
+                }
             }
         }
     }

@@ -9,8 +9,8 @@
     <item
         android:id="@+id/searchFragment"
         android:menuCategory="secondary"
-        android:icon="@drawable/clapperboard"
-        android:title="Search" />
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="@string/search" />
 
     <item
         android:id="@+id/favoriteFragment"

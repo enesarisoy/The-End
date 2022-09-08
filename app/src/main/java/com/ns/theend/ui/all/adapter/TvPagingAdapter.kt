@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.ns.theend.data.model.movie.Result
+import com.ns.theend.data.model.search.Result
 import com.ns.theend.data.model.tv.TvResult
 import com.ns.theend.databinding.ItemViewAllBinding
 import com.ns.theend.utils.Constants

@@ -49,8 +49,10 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>(
     }
 
     private fun initObservers() {
+        args.searchMovie?.id?.let { viewModel.getDetailMovie(it, API_KEY) }
         args.movie?.id?.let { viewModel.getDetailMovie(it, API_KEY) }
         args.movie?.let { viewModel.getCreditsMovie(it.id, API_KEY) }
+        args.searchMovie?.let { viewModel.getCreditsMovie(it.id, API_KEY) }
 
         viewModel.detailMovieResponse.observe(viewLifecycleOwner) { response ->
 

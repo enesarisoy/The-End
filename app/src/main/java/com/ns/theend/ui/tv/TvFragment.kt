@@ -42,19 +42,19 @@ class TvFragment : BaseFragment<FragmentTvBinding>(
 
         trendingAdapter.setOnItemClickListener {
             findNavController().navigate(
-                MainFragmentDirections.actionMainFragmentToTvDetailFragment(it)
+                MainFragmentDirections.actionMainFragmentToTvDetailFragment(it, null)
             )
         }
 
         popularAdapter.setOnItemClickListener {
             findNavController().navigate(
-                MainFragmentDirections.actionMainFragmentToTvDetailFragment(it)
+                MainFragmentDirections.actionMainFragmentToTvDetailFragment(it, null)
             )
         }
 
         topRatedAdapter.setOnItemClickListener {
             findNavController().navigate(
-                MainFragmentDirections.actionMainFragmentToTvDetailFragment(it)
+                MainFragmentDirections.actionMainFragmentToTvDetailFragment(it, null)
             )
         }
 

@@ -31,7 +31,13 @@ class SearchPagingAdapter : PagingDataAdapter<Result, SearchPagingAdapter.ViewHo
 
         fun bind(result: Result) {
             binding.apply {
-                tvTitle.text = result.title
+                if (result.mediaType == "tv") {
+                    tvTitle.text = result.name
+                }
+                if (result.mediaType == "movie") {
+                    tvTitle.text = result.title
+
+                }
                 ivPoster.downloadImage(Constants.IMAGE_BASE_URL + result.backdropPath)
 
                 itemView.setOnClickListener {
