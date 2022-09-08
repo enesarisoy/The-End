@@ -3,6 +3,8 @@ package com.ns.theend.data.remote
 import com.ns.theend.data.model.CreditsResponse
 import com.ns.theend.data.model.movie.MovieResponse
 import com.ns.theend.data.model.movie_detail.MovieDetailResponse
+import com.ns.theend.data.model.search.Result
+import com.ns.theend.data.model.search.SearchResponse
 import com.ns.theend.data.model.tv.TvDetailResponse
 import com.ns.theend.data.model.tv.TvResponse
 import retrofit2.Response
@@ -12,6 +14,13 @@ import retrofit2.http.Query
 import retrofit2.http.QueryMap
 
 interface ServiceApi {
+
+    @GET("search/multi")
+    suspend fun searchAll(
+        @Query("api_key") apikey: String,
+        @Query("query") query: String,
+        @Query("page") page: Int
+    ): Response<SearchResponse>
 
     @GET("movie/popular")
     suspend fun getPopularMovie(

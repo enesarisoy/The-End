@@ -1,19 +1,22 @@
-package com.ns.theend.data.model.movie
+package com.ns.theend.data.model.search
 
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import com.ns.theend.data.model.MainResult
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Result(
+data class KnownFor(
+    @SerializedName("adult")
+    val adult: Boolean,
+    @SerializedName("backdrop_path")
+    val backdropPath: String,
+    @SerializedName("genre_ids")
+    val genreIds: List<Int>,
     @SerializedName("id")
     val id: Int,
     @SerializedName("media_type")
     val mediaType: String,
-    @SerializedName("backdrop_path")
-    val backdropPath: String,
     @SerializedName("original_language")
     val originalLanguage: String,
     @SerializedName("original_title")
@@ -26,16 +29,10 @@ data class Result(
     val releaseDate: String,
     @SerializedName("title")
     val title: String,
+    @SerializedName("video")
+    val video: Boolean,
     @SerializedName("vote_average")
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-) : Parcelable, MainResult() {
-    override fun hashCode(): Int {
-        var result = id.hashCode()
-        if(posterPath.isNullOrEmpty()){
-            result = 31 * result + posterPath.hashCode()
-        }
-        return result
-    }
-}
+): Parcelable

@@ -35,8 +35,10 @@ class TvDetailFragment() : BaseFragment<FragmentTvDetailBinding>(
     }
 
     private fun initObserver() {
-        viewModel.getDetailTv(args.tv.id, API_KEY)
-        viewModel.getCreditsTv(args.tv.id, API_KEY)
+        args.tv?.id?.let { viewModel.getDetailTv(it, API_KEY) }
+        args.tv?.let { viewModel.getCreditsTv(it.id, API_KEY) }
+        args.searchTv?.id?.let { viewModel.getDetailTv(it, API_KEY) }
+        args.searchTv?.let { viewModel.getCreditsTv(it.id, API_KEY) }
 
         viewModel.detailTvResponse.observe(viewLifecycleOwner) { response ->
             when (response) {
@@ -56,7 +58,7 @@ class TvDetailFragment() : BaseFragment<FragmentTvDetailBinding>(
                             tvEpisodeCount.text =
                                 getString(R.string.number_of_episodes, it.numberOfEpisodes)
                             tvGenre.text = it.genres[0].name
-                            ivTv.downloadImage(IMAGE_BASE_URL + args.tv.posterPath)
+                            ivTv.downloadImage(IMAGE_BASE_URL + it.posterPath)
 
                             tvOriginalTitleAboutResponse.text = it.originalName
                             tvReleaseDateAboutResponse.text = it.firstAirDate

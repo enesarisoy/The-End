@@ -49,8 +49,10 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>(
     }
 
     private fun initObservers() {
-        viewModel.getDetailMovie(args.movie.id, API_KEY)
-        viewModel.getCreditsMovie(args.movie.id, API_KEY)
+        args.searchMovie?.id?.let { viewModel.getDetailMovie(it, API_KEY) }
+        args.movie?.id?.let { viewModel.getDetailMovie(it, API_KEY) }
+        args.movie?.let { viewModel.getCreditsMovie(it.id, API_KEY) }
+        args.searchMovie?.let { viewModel.getCreditsMovie(it.id, API_KEY) }
 
         viewModel.detailMovieResponse.observe(viewLifecycleOwner) { response ->
 
@@ -134,7 +136,7 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>(
 //            firebaseDb.getReference("movie").push().child("movie_id").setValue(args.movie.id)
 //            firebaseDb.reference.child("movie_id").setValue(args.movie.id)
             firebaseDb.getReference("Users").child(uid).child("movie").push()
-                .setValue(args.movie.id)
+                .setValue(args.movie?.id)
 
 //            firebaseDb.reference.child("movie").child("id").setValue(args.movie.id)
 //            checkData()
@@ -142,9 +144,9 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>(
     }
 
     private fun checkData() {
-        val postRef = firebaseDb.getReference("movie").child(args.movie.title)
+        val postRef = args.movie?.let { firebaseDb.getReference("movie").child(it.title) }
 
-        postRef.addListenerForSingleValueEvent(object : ValueEventListener {
+        postRef?.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
                 if (snapshot.exists()) {
@@ -155,7 +157,7 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>(
                         )
                     )
                 } else {
-                    Log.e("Deneme", "${args.movie.title} not exists")
+                    Log.e("Deneme", "${args.movie?.title} not exists")
 
                 }
             }

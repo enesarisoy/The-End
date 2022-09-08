@@ -53,20 +53,20 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>(
 
         trendingAdapter.setOnItemClickListener {
             findNavController().navigate(
-                MainFragmentDirections.actionMainFragmentToMovieDetailFragment(it)
+                MainFragmentDirections.actionMainFragmentToMovieDetailFragment(it, null)
 
             )
         }
 
         topRatedAdapter.setOnItemClickListener {
             findNavController().navigate(
-                MainFragmentDirections.actionMainFragmentToMovieDetailFragment(it)
+                MainFragmentDirections.actionMainFragmentToMovieDetailFragment(it,null)
             )
         }
 
         popularAdapter.setOnItemClickListener {
             findNavController().navigate(
-                MainFragmentDirections.actionMainFragmentToMovieDetailFragment(it)
+                MainFragmentDirections.actionMainFragmentToMovieDetailFragment(it, null)
             )
         }
 

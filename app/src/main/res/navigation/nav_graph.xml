@@ -91,6 +91,9 @@
         <action
             android:id="@+id/action_mainFragment_to_viewAllFragment"
             app:destination="@id/viewAllFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
@@ -102,10 +105,18 @@
             app:destination="@id/mainFragment" />
         <argument
             android:name="movie"
-            app:argType="com.ns.theend.data.model.movie.Result" />
+            app:argType="com.ns.theend.data.model.movie.Result"
+            app:nullable="true" />
         <action
             android:id="@+id/action_movieDetailFragment_to_viewAllFragment"
             app:destination="@id/viewAllFragment" />
+        <action
+            android:id="@+id/action_movieDetailFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <argument
+            android:name="search_movie"
+            app:argType="com.ns.theend.data.model.search.Result"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/tvDetailFragment"
@@ -117,10 +128,18 @@
             app:destination="@id/mainFragment" />
         <argument
             android:name="tv"
-            app:argType="com.ns.theend.data.model.tv.TvResult" />
+            app:argType="com.ns.theend.data.model.tv.TvResult"
+            app:nullable="true" />
         <action
             android:id="@+id/action_tvDetailFragment_to_viewAllFragment"
             app:destination="@id/viewAllFragment" />
+        <action
+            android:id="@+id/action_tvDetailFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <argument
+            android:name="search_tv"
+            app:argType="com.ns.theend.data.model.search.Result"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/movieFavoriteFragment"
@@ -158,5 +177,20 @@
         <action
             android:id="@+id/action_viewAllFragment_to_tvDetailFragment"
             app:destination="@id/tvDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.ns.theend.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_tvDetailFragment"
+            app:destination="@id/tvDetailFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
     </fragment>
 </navigation>
