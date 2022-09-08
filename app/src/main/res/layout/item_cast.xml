@@ -31,6 +31,7 @@
         android:ellipsize="end"
         android:maxLines="2"
         android:text="@{cast.name}"
+        android:textAlignment="center"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

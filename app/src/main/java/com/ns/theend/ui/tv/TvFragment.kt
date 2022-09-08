@@ -58,6 +58,24 @@ class TvFragment : BaseFragment<FragmentTvBinding>(
             )
         }
 
+        binding.apply {
+            tvTrendViewAll.setOnClickListener {
+                findNavController().navigate(
+                    MainFragmentDirections.actionMainFragmentToViewAllFragment("trendingTv")
+                )
+            }
+            tvPopularViewAll.setOnClickListener {
+                findNavController().navigate(
+                    MainFragmentDirections.actionMainFragmentToViewAllFragment("popularTv")
+                )
+            }
+            tvTopRatedViewAll.setOnClickListener {
+                findNavController().navigate(
+                    MainFragmentDirections.actionMainFragmentToViewAllFragment("top_rated_tv")
+                )
+            }
+        }
+
 
     }
 

@@ -23,7 +23,7 @@ data class MovieDetailResponse(
     @SerializedName("release_date")
     val releaseDate: String,
     @SerializedName("revenue")
-    val revenue: Int,
+    val revenue: Long,
     @SerializedName("status")
     val status: String,
     @SerializedName("tagline")

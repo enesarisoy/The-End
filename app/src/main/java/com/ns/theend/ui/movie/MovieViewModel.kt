@@ -9,6 +9,7 @@ import com.ns.theend.utils.Resource
 import com.ns.theend.utils.Utils.handleResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import retrofit2.http.Query
 import javax.inject.Inject
 
 @HiltViewModel
@@ -47,41 +48,41 @@ class MovieViewModel @Inject constructor(
     private suspend fun getTrendingMoviesSafeCall(apiKey: String) {
         trendingMoviesResponse.value = Resource.Loading()
 
-            try {
-                val trendingResponse = repository.getTrendingMovies(apiKey)
-                trendingMoviesResponse.value =
-                    handleResponse(trendingResponse)
-            } catch (e: Exception) {
-                trendingMoviesResponse.value = Resource.Error(e.message.toString())
-            }
+        try {
+            val trendingResponse = repository.getTrendingMovies(apiKey)
+            trendingMoviesResponse.value =
+                handleResponse(trendingResponse)
+        } catch (e: Exception) {
+            trendingMoviesResponse.value = Resource.Error(e.message.toString())
+        }
 
     }
 
     private suspend fun getPopularMoviesSafeCall(apiKey: String) {
         popularMoviesResponse.value = Resource.Loading()
 
-            try {
-                val popularResponse = repository.getPopularMovies(apiKey)
-                popularMoviesResponse.value =
-                    handleResponse(popularResponse)
+        try {
+            val popularResponse = repository.getPopularMovies(apiKey)
+            popularMoviesResponse.value =
+                handleResponse(popularResponse)
 
-            } catch (e: Exception) {
-                popularMoviesResponse.value = Resource.Error(e.message.toString())
-            }
+        } catch (e: Exception) {
+            popularMoviesResponse.value = Resource.Error(e.message.toString())
+        }
 
     }
 
     private suspend fun getTopRatedMoviesSafeCall(apiKey: String) {
         topRatedMoviesResponse.value = Resource.Loading()
 
-            try {
-                val topRatedResponse = repository.getTopRatedMovie(apiKey)
-                topRatedMoviesResponse.value =
-                    handleResponse(topRatedResponse)
+        try {
+            val topRatedResponse = repository.getTopRatedMovie(apiKey)
+            topRatedMoviesResponse.value =
+                handleResponse(topRatedResponse)
 
-            } catch (e: Exception) {
-                topRatedMoviesResponse.value = Resource.Error(e.message.toString())
-            }
+        } catch (e: Exception) {
+            topRatedMoviesResponse.value = Resource.Error(e.message.toString())
+        }
 
     }
 

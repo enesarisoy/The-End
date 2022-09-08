@@ -23,6 +23,7 @@ import com.ns.theend.ui.movie.adapter.PopularAdapter
 import com.ns.theend.ui.movie.adapter.TopRatedAdapter
 import com.ns.theend.ui.movie.adapter.TrendingAdapter
 import com.ns.theend.utils.Constants.API_KEY
+import com.ns.theend.utils.Constants.IMAGE_BASE_URL
 import com.ns.theend.utils.Resource
 import com.ns.theend.utils.downloadImageForCarousel
 import com.ns.theend.utils.toast
@@ -67,6 +68,32 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>(
             findNavController().navigate(
                 MainFragmentDirections.actionMainFragmentToMovieDetailFragment(it)
             )
+        }
+
+        binding.apply {
+            tvTrendViewAll.setOnClickListener {
+                findNavController().navigate(
+                    MainFragmentDirections.actionMainFragmentToViewAllFragment("trending")
+                )
+            }
+
+            tvPopularViewAll.setOnClickListener {
+                findNavController().navigate(
+                    MainFragmentDirections.actionMainFragmentToViewAllFragment("popular")
+                )
+            }
+
+            tvTopRatedViewAll.setOnClickListener {
+                findNavController().navigate(
+                    MainFragmentDirections.actionMainFragmentToViewAllFragment("top_rated")
+                )
+            }
+
+            ivUpcomingViewAll.setOnClickListener {
+                findNavController().navigate(
+                    MainFragmentDirections.actionMainFragmentToViewAllFragment("upcoming")
+                )
+            }
         }
     }
 
@@ -181,7 +208,7 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>(
                 var imgPath: String? = images[position]
                 if (imgPath.isNullOrEmpty())
                     imgPath = ""
-                imageView.downloadImageForCarousel("https://image.tmdb.org/t/p/w500/${imgPath}")
+                imageView.downloadImageForCarousel(IMAGE_BASE_URL + imgPath)
             }
             show()
         }

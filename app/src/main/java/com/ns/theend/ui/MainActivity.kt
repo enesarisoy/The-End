@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
 
-      
 
         /* firebaseViewModel = ViewModelProvider(
              this,
@@ -83,6 +82,12 @@ class MainActivity : AppCompatActivity() {
                     bottomNavBar.makeVisible()
                     toolbar.makeVisible()
 
+                }
+            }
+            R.id.viewAllFragment -> {
+                binding.apply {
+                    bottomNavBar.makeVisible()
+                    toolbar.makeVisibilityGone()
                 }
             }
         }

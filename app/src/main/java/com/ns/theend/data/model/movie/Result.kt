@@ -11,6 +11,8 @@ data class Result(
     val id: Int,
     @SerializedName("media_type")
     val mediaType: String,
+    @SerializedName("backdrop_path")
+    val backdropPath: String,
     @SerializedName("original_language")
     val originalLanguage: String,
     @SerializedName("original_title")
