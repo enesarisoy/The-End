@@ -4,6 +4,7 @@ import com.ns.theend.data.model.CreditsResponse
 import com.ns.theend.data.model.movie.MovieResponse
 import com.ns.theend.data.model.movie_detail.MovieDetailResponse
 import com.ns.theend.data.model.search.Result
+import com.ns.theend.data.model.search.SearchResponse
 import com.ns.theend.data.model.tv.TvDetailResponse
 import com.ns.theend.data.model.tv.TvResponse
 import com.ns.theend.data.remote.ServiceApi
@@ -13,7 +14,7 @@ import javax.inject.Inject
 
 class NetworkRepository @Inject constructor(private val serviceApi: ServiceApi) {
 
-    suspend fun searchAll(apiKey: String, query: String): Response<Result> {
+    suspend fun searchAll(apiKey: String, query: String): Response<SearchResponse> {
         return serviceApi.searchAll(apiKey, query, STARTING_KEY)
     }
 

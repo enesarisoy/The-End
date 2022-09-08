@@ -1,8 +1,12 @@
 package com.ns.theend.data.model.search
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import com.ns.theend.data.model.MainResult
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Result(
     @SerializedName("adult")
     val adult: Boolean,
@@ -24,8 +28,6 @@ data class Result(
     val mediaType: String,
     @SerializedName("name")
     val name: String,
-    @SerializedName("origin_country")
-    val originCountry: List<Any>,
     @SerializedName("original_language")
     val originalLanguage: String,
     @SerializedName("original_name")
@@ -50,4 +52,12 @@ data class Result(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-)
+) : MainResult(), Parcelable {
+    override fun hashCode(): Int {
+        var result = id.hashCode()
+        if(posterPath.isNullOrEmpty()){
+            result = 31 * result + posterPath.hashCode()
+        }
+        return result
+    }
+}

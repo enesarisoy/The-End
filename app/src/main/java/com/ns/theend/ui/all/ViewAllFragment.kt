@@ -46,7 +46,7 @@ class ViewAllFragment : BaseFragment<FragmentMovieViewAllBinding>(
     private fun initClick() {
         moviePagingAdapter.setOnItemClickListener {
             findNavController().navigate(
-                ViewAllFragmentDirections.actionViewAllFragmentToMovieDetailFragment(it)
+                ViewAllFragmentDirections.actionViewAllFragmentToMovieDetailFragment(it,null)
             )
         }
         tvPagingAdapter.setOnItemClickListener {

@@ -2,6 +2,7 @@ package com.ns.theend.data.model.tv
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import com.ns.theend.data.model.MainResult
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -79,7 +80,7 @@ data class TvResult(
     @SerializedName("vote_count")
     val voteCount: Int
 
-    ): Parcelable {
+    ): Parcelable, MainResult() {
 
     override fun hashCode(): Int {
         var result = id.hashCode()

@@ -4,6 +4,7 @@ import com.ns.theend.data.model.CreditsResponse
 import com.ns.theend.data.model.movie.MovieResponse
 import com.ns.theend.data.model.movie_detail.MovieDetailResponse
 import com.ns.theend.data.model.search.Result
+import com.ns.theend.data.model.search.SearchResponse
 import com.ns.theend.data.model.tv.TvDetailResponse
 import com.ns.theend.data.model.tv.TvResponse
 import retrofit2.Response
@@ -19,7 +20,7 @@ interface ServiceApi {
         @Query("api_key") apikey: String,
         @Query("query") query: String,
         @Query("page") page: Int
-    ): Response<Result>
+    ): Response<SearchResponse>
 
     @GET("movie/popular")
     suspend fun getPopularMovie(

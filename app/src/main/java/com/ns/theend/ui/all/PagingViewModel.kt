@@ -22,11 +22,6 @@ import javax.inject.Inject
 class PagingViewModel @Inject constructor(
     serviceApi: ServiceApi
 ) : ViewModel() {
-/*
-
-    // TODO Later
-    private val query = MutableLiveData<String>("")
-*/
 
     val itemsTrendingMovie: Flow<PagingData<Result>> = Pager(
         config = PagingConfig(pageSize = ITEMS_PER_PAGE, enablePlaceholders = false),
@@ -69,18 +64,4 @@ class PagingViewModel @Inject constructor(
         pagingSourceFactory = { TopRatedTvPagingDataSource(serviceApi) }
     ).flow
         .cachedIn(viewModelScope)
-
-
-
-/*
-    val list = query.switchMap {
-
-        Pager(PagingConfig(pageSize = ITEMS_PER_PAGE)) {
-            TrendingMoviePagingDataSource(serviceApi)
-        }.liveData.cachedIn(viewModelScope)
-    }
-
-    fun setQuery(s: String) {
-        query.postValue(s)
-    }*/
 }

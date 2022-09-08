@@ -1,8 +1,11 @@
 package com.ns.theend.data.model.search
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class KnownFor(
     @SerializedName("adult")
     val adult: Boolean,
@@ -32,4 +35,4 @@ data class KnownFor(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-)
+): Parcelable
