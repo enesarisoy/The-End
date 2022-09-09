@@ -8,6 +8,8 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import androidx.paging.liveData
+import com.ns.theend.data.model.cast.paging.CastPagingDataSource
+//import com.ns.theend.data.model.cast.paging.CastPagingDataSource
 import com.ns.theend.data.model.movie.paging.SearchPagingDataSource
 import com.ns.theend.data.model.search.Result
 import com.ns.theend.data.remote.ServiceApi
@@ -29,6 +31,13 @@ class SearchViewModel @Inject constructor(
 
         Pager(PagingConfig(pageSize = ITEMS_PER_PAGE)) {
             SearchPagingDataSource(query, serviceApi)
+        }.liveData.cachedIn(viewModelScope)
+    }
+
+    val castList = query.switchMap { query ->
+
+        Pager(PagingConfig(pageSize = ITEMS_PER_PAGE)) {
+            CastPagingDataSource(query, serviceApi)
         }.liveData.cachedIn(viewModelScope)
     }
 

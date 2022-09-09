@@ -92,8 +92,8 @@
             android:id="@+id/action_mainFragment_to_viewAllFragment"
             app:destination="@id/viewAllFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
+            android:id="@+id/action_mainFragment_to_mainSearchFragment"
+            app:destination="@id/mainSearchFragment" />
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
@@ -117,6 +117,9 @@
             android:name="search_movie"
             app:argType="com.ns.theend.data.model.search.Result"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_movieDetailFragment_to_mainSearchFragment"
+            app:destination="@id/mainSearchFragment" />
     </fragment>
     <fragment
         android:id="@+id/tvDetailFragment"
@@ -140,6 +143,9 @@
             android:name="search_tv"
             app:argType="com.ns.theend.data.model.search.Result"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_tvDetailFragment_to_mainSearchFragment"
+            app:destination="@id/mainSearchFragment" />
     </fragment>
     <fragment
         android:id="@+id/movieFavoriteFragment"
@@ -192,5 +198,59 @@
         <action
             android:id="@+id/action_searchFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_mainSearchFragment"
+            app:destination="@id/mainSearchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainSearchFragment"
+        android:name="com.ns.theend.ui.search.MainSearchFragment"
+        android:label="fragment_main_search"
+        tools:layout="@layout/fragment_main_search" >
+        <action
+            android:id="@+id/action_mainSearchFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_mainSearchFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_mainSearchFragment_to_searchCastFragment"
+            app:destination="@id/searchCastFragment" />
+        <action
+            android:id="@+id/action_mainSearchFragment_to_tvDetailFragment"
+            app:destination="@id/tvDetailFragment" />
+        <action
+            android:id="@+id/action_mainSearchFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+        <action
+            android:id="@+id/action_mainSearchFragment_to_castDetailFragment"
+            app:destination="@id/castDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchCastFragment"
+        android:name="com.ns.theend.ui.search.SearchCastFragment"
+        android:label="fragment_search_cast"
+        tools:layout="@layout/fragment_search_cast" >
+        <action
+            android:id="@+id/action_searchCastFragment_to_mainSearchFragment"
+            app:destination="@id/mainSearchFragment" />
+        <action
+            android:id="@+id/action_searchCastFragment_to_castDetailFragment"
+            app:destination="@id/castDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/castDetailFragment"
+        android:name="com.ns.theend.ui.cast.CastDetailFragment"
+        android:label="fragment_cast_detail"
+        tools:layout="@layout/fragment_cast_detail" >
+        <action
+            android:id="@+id/action_castDetailFragment_to_searchCastFragment"
+            app:destination="@id/searchCastFragment" />
+        <action
+            android:id="@+id/action_castDetailFragment_to_mainSearchFragment"
+            app:destination="@id/mainSearchFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
 </navigation>

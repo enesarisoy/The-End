@@ -1,6 +1,8 @@
 package com.ns.theend.data.repository
 
 import com.ns.theend.data.model.CreditsResponse
+import com.ns.theend.data.model.cast.CastResponse
+import com.ns.theend.data.model.cast.detail.CastDetailResult
 import com.ns.theend.data.model.movie.MovieResponse
 import com.ns.theend.data.model.movie_detail.MovieDetailResponse
 import com.ns.theend.data.model.search.Result
@@ -16,6 +18,21 @@ class NetworkRepository @Inject constructor(private val serviceApi: ServiceApi) 
 
     suspend fun searchAll(apiKey: String, query: String): Response<SearchResponse> {
         return serviceApi.searchAll(apiKey, query, STARTING_KEY)
+    }
+
+    suspend fun searchPerson(apiKey: String, query: String): Response<CastResponse> {
+        return serviceApi.searchPerson(apiKey, query, STARTING_KEY)
+    }
+
+    suspend fun getPersonDetail(id: Int, apiKey: String): Response<CastDetailResult> {
+        return serviceApi.getPersonDetail(id, apiKey)
+    }
+
+    suspend fun getCreditsDetail(
+        id: Int,
+        apiKey: String
+    ): Response<com.ns.theend.data.model.cast.detail.CreditsResponse> {
+        return serviceApi.getPersonCredits(id, apiKey)
     }
 
     suspend fun getPopularMovies(apiKey: String): Response<MovieResponse> {

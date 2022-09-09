@@ -1,6 +1,8 @@
 package com.ns.theend.data.remote
 
 import com.ns.theend.data.model.CreditsResponse
+import com.ns.theend.data.model.cast.CastResponse
+import com.ns.theend.data.model.cast.detail.CastDetailResult
 import com.ns.theend.data.model.movie.MovieResponse
 import com.ns.theend.data.model.movie_detail.MovieDetailResponse
 import com.ns.theend.data.model.search.Result
@@ -21,6 +23,25 @@ interface ServiceApi {
         @Query("query") query: String,
         @Query("page") page: Int
     ): Response<SearchResponse>
+
+    @GET("search/person")
+    suspend fun searchPerson(
+        @Query("api_key") apikey: String,
+        @Query("query") query: String,
+        @Query("page") page: Int
+    ): Response<CastResponse>
+
+    @GET("person/{person_id}/combined_credits")
+    suspend fun getPersonCredits(
+        @Path("person_id") personId: Int,
+        @Query("api_key") apikey: String
+    ): Response<com.ns.theend.data.model.cast.detail.CreditsResponse>
+
+    @GET("person/{person_id}")
+    suspend fun getPersonDetail(
+        @Path("person_id") personId: Int,
+        @Query("api_key") apikey: String,
+    ): Response<CastDetailResult>
 
     @GET("movie/popular")
     suspend fun getPopularMovie(

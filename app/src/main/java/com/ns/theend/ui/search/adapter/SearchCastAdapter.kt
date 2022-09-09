@@ -6,12 +6,11 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ns.theend.databinding.ItemViewAllBinding
-import com.ns.theend.data.model.search.Result
 import com.ns.theend.utils.Constants
+import com.ns.theend.data.model.cast.Result
 import com.ns.theend.utils.downloadImage
 
-
-class SearchPagingAdapter : PagingDataAdapter<Result, SearchPagingAdapter.ViewHolder>(DIFF_UTIL) {
+class SearchCastAdapter : PagingDataAdapter<Result, SearchCastAdapter.ViewHolder>(DIFF_UTIL) {
 
     companion object {
         val DIFF_UTIL = object : DiffUtil.ItemCallback<Result>() {
@@ -31,17 +30,9 @@ class SearchPagingAdapter : PagingDataAdapter<Result, SearchPagingAdapter.ViewHo
 
         fun bind(result: Result) {
             binding.apply {
-                if (result.mediaType == "tv") {
-                    tvTitle.text = result.name
-                }
-                if (result.mediaType == "movie") {
-                    tvTitle.text = result.title
+                tvTitle.text = result.name
 
-                }
-                if (result.mediaType == "person") {
-                    tvTitle.text = result.knownFor[position].title
-                }
-                ivPoster.downloadImage(Constants.IMAGE_BASE_URL + result.backdropPath)
+                ivPoster.downloadImage(Constants.IMAGE_BASE_URL + result.profilePath)
 
                 itemView.setOnClickListener {
                     onItemClickListener?.let { it(result) }
