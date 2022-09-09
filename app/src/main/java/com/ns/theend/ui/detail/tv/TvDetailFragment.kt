@@ -3,6 +3,7 @@ package com.ns.theend.ui.detail.tv
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ns.theend.R
@@ -32,6 +33,15 @@ class TvDetailFragment() : BaseFragment<FragmentTvDetailBinding>(
 //        initData()
         initRecyclerView()
         initObserver()
+        initClick()
+    }
+
+    private fun initClick() {
+        castAdapter.setOnItemClickListener {
+            findNavController().navigate(
+                TvDetailFragmentDirections.actionTvDetailFragmentToCastDetailFragment(it.id)
+            )
+        }
     }
 
     private fun initObserver() {

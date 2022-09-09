@@ -40,18 +40,18 @@ class MovieCastAdapter : RecyclerView.Adapter<MovieCastAdapter.MovieCastViewHold
             ivCast.downloadImage(IMAGE_BASE_URL + cast.profilePath)
 
         }
-        /* holder.itemView.setOnClickListener {
-             onItemClickListener?.let { it(popular) }
-         }*/
+         holder.itemView.setOnClickListener {
+             onItemClickListener?.let { it(cast) }
+         }
     }
 
     override fun getItemCount(): Int = castList.size
 
-    /*  private var onItemClickListener: ((Result) -> Unit)? = null
+      private var onItemClickListener: ((Cast) -> Unit)? = null
 
-      fun setOnItemClickListener(listener: (Result) -> Unit) {
+      fun setOnItemClickListener(listener: (Cast) -> Unit) {
           onItemClickListener = listener
-      }*/
+      }
 
     fun setData(newData: CreditsResponse) {
         val diffUtil = MyDiffUtil(castList, newData.cast)
