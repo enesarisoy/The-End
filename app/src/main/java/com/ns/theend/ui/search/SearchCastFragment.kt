@@ -1,7 +1,6 @@
 package com.ns.theend.ui.search
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,20 +10,18 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ns.theend.R
-import com.ns.theend.databinding.FragmentSearchBinding
+import com.ns.theend.databinding.FragmentSearchCastBinding
 import com.ns.theend.ui.BaseFragment
-import com.ns.theend.ui.all.adapter.MoviePagingAdapter
-import com.ns.theend.ui.search.adapter.SearchPagingAdapter
-import com.ns.theend.utils.Constants.API_KEY
+import com.ns.theend.ui.search.adapter.SearchCastAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SearchFragment : BaseFragment<FragmentSearchBinding>(
-    FragmentSearchBinding::inflate
+class SearchCastFragment : BaseFragment<FragmentSearchCastBinding>(
+    FragmentSearchCastBinding::inflate
 ) {
 
     private val viewModel: SearchViewModel by viewModels()
-    private val searchPagingAdapter = SearchPagingAdapter()
+    private val searchCastAdapter = SearchCastAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,20 +33,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
     }
 
     private fun initClick() {
-        searchPagingAdapter.setOnItemClickListener {
-            when (it.mediaType) {
-                "movie" -> {
-                    findNavController().navigate(
-                        MainSearchFragmentDirections.actionMainSearchFragmentToMovieDetailFragment(null, it)
-                    )
-                }
-                "tv" -> {
-                    findNavController().navigate(
-                        MainSearchFragmentDirections.actionMainSearchFragmentToTvDetailFragment(null, it)
-                    )
-                }
-                else -> Log.e("Dene", it.toString())
-            }
+        searchCastAdapter.setOnItemClickListener {
+            findNavController().navigate(
+                MainSearchFragmentDirections.actionMainSearchFragmentToCastDetailFragment(it.id)
+            )
         }
     }
 
@@ -67,14 +54,14 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
             }
         })
 
-        viewModel.list.observe(viewLifecycleOwner) {
-            searchPagingAdapter.submitData(lifecycle, it)
+        viewModel.castList.observe(viewLifecycleOwner) {
+            searchCastAdapter.submitData(lifecycle, it)
         }
     }
 
     private fun initRecyclerView() {
         binding.rvSearch.apply {
-            adapter = searchPagingAdapter
+            adapter = searchCastAdapter
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 

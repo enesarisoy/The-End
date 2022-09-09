@@ -1,4 +1,4 @@
-package com.ns.theend.ui.cast.adapter
+package com.ns.theend.ui.search.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,19 +7,19 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ns.theend.databinding.ItemViewAllBinding
 import com.ns.theend.utils.Constants
+import com.ns.theend.data.model.cast.Result
 import com.ns.theend.utils.downloadImage
 
-
-class CastPagingAdapter : PagingDataAdapter<com.ns.theend.data.model.cast.Result, CastPagingAdapter.ViewHolder>(DIFF_UTIL) {
+class SearchCastAdapter : PagingDataAdapter<Result, SearchCastAdapter.ViewHolder>(DIFF_UTIL) {
 
     companion object {
-        val DIFF_UTIL = object : DiffUtil.ItemCallback<com.ns.theend.data.model.cast.Result>() {
-            override fun areItemsTheSame(oldItem: com.ns.theend.data.model.cast.Result, newItem: com.ns.theend.data.model.cast.Result): Boolean {
+        val DIFF_UTIL = object : DiffUtil.ItemCallback<Result>() {
+            override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean {
                 return oldItem.id == newItem.id
             }
 
 
-            override fun areContentsTheSame(oldItem: com.ns.theend.data.model.cast.Result, newItem: com.ns.theend.data.model.cast.Result): Boolean {
+            override fun areContentsTheSame(oldItem: Result, newItem: Result): Boolean {
                 return oldItem == newItem
             }
         }
@@ -28,9 +28,10 @@ class CastPagingAdapter : PagingDataAdapter<com.ns.theend.data.model.cast.Result
     inner class ViewHolder(val binding: ItemViewAllBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(result: com.ns.theend.data.model.cast.Result) {
+        fun bind(result: Result) {
             binding.apply {
                 tvTitle.text = result.name
+
                 ivPoster.downloadImage(Constants.IMAGE_BASE_URL + result.profilePath)
 
                 itemView.setOnClickListener {
@@ -57,9 +58,9 @@ class CastPagingAdapter : PagingDataAdapter<com.ns.theend.data.model.cast.Result
             )
         )
 
-    private var onItemClickListener: ((com.ns.theend.data.model.cast.Result) -> Unit)? = null
+    private var onItemClickListener: ((Result) -> Unit)? = null
 
-    fun setOnItemClickListener(listener: (com.ns.theend.data.model.cast.Result) -> Unit) {
+    fun setOnItemClickListener(listener: (Result) -> Unit) {
         onItemClickListener = listener
     }
 }

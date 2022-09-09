@@ -36,4 +36,7 @@
     <string name="number_of_episodes">%d Episodes</string>
     <string name="cast">Cast</string>
     <string name="search">Search</string>
+    <string name="about">About</string>
+    <string name="known_for">Known For</string>
+    <string name="still_living">Still living</string>
 </resources>

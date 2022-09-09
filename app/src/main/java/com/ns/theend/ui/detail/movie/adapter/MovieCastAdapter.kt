@@ -47,9 +47,9 @@ class MovieCastAdapter : RecyclerView.Adapter<MovieCastAdapter.MovieCastViewHold
 
     override fun getItemCount(): Int = castList.size
 
-    /*  private var onItemClickListener: ((CastResult) -> Unit)? = null
+    /*  private var onItemClickListener: ((Result) -> Unit)? = null
 
-      fun setOnItemClickListener(listener: (CastResult) -> Unit) {
+      fun setOnItemClickListener(listener: (Result) -> Unit) {
           onItemClickListener = listener
       }*/
 

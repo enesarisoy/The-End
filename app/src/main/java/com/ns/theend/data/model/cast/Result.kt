@@ -3,7 +3,7 @@ package com.ns.theend.data.model.cast
 
 import com.google.gson.annotations.SerializedName
 
-data class CastResult(
+data class Result(
     @SerializedName("adult")
     val adult: Boolean,
     @SerializedName("gender")

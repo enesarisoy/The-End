@@ -38,6 +38,9 @@ class SearchPagingAdapter : PagingDataAdapter<Result, SearchPagingAdapter.ViewHo
                     tvTitle.text = result.title
 
                 }
+                if (result.mediaType == "person") {
+                    tvTitle.text = result.knownFor[position].title
+                }
                 ivPoster.downloadImage(Constants.IMAGE_BASE_URL + result.backdropPath)
 
                 itemView.setOnClickListener {
