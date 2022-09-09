@@ -3,7 +3,6 @@ package com.ns.theend.data.model.search
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import com.ns.theend.data.model.MainResult
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -52,7 +51,7 @@ data class Result(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-) : MainResult(), Parcelable {
+) : Parcelable {
     override fun hashCode(): Int {
         var result = id.hashCode()
         if(posterPath.isNullOrEmpty()){

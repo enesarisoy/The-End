@@ -16,14 +16,6 @@ import javax.inject.Inject
 
 class NetworkRepository @Inject constructor(private val serviceApi: ServiceApi) {
 
-    suspend fun searchAll(apiKey: String, query: String): Response<SearchResponse> {
-        return serviceApi.searchAll(apiKey, query, STARTING_KEY)
-    }
-
-    suspend fun searchPerson(apiKey: String, query: String): Response<CastResponse> {
-        return serviceApi.searchPerson(apiKey, query, STARTING_KEY)
-    }
-
     suspend fun getPersonDetail(id: Int, apiKey: String): Response<CastDetailResult> {
         return serviceApi.getPersonDetail(id, apiKey)
     }
