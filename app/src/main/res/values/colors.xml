@@ -8,5 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="mediumGray">#D1D1D1</color>
-
+    <color name="light_blue">#4B97C5</color>
+    <color name="semi_transparent">#00000000</color>
+    <color name="red">#C13232</color>
+    <color name="darkGray">#4B4B4B</color>
+    <color name="lightGray">#F9F9F9</color>
+    <color name="white_trans">#7CFFFFFF</color>
 </resources>

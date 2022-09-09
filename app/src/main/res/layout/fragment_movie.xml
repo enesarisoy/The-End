@@ -7,9 +7,31 @@
     android:background="#1B1A17"
     tools:context=".ui.movie.MovieFragment">
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/shimmer"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/linear">
+
+<!--            <include layout="@layout/placeholder_row_desc"/>-->
+<!--            <include layout="@layout/placeholder_item_list"/>-->
+
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/scrollView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,21 +41,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
-
             <TextView
                 android:id="@+id/tvUpcoming"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="22dp"
                 android:text="@string/upcoming"
+                android:layout_marginTop="22dp"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.jama.carouselview.CarouselView
+            <com.zhpan.bannerview.BannerViewPager
                 android:id="@+id/ivUpcoming"
                 android:layout_width="350dp"
                 android:layout_height="200dp"
@@ -58,7 +78,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvTrending"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="240dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"

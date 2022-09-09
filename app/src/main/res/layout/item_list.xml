@@ -25,8 +25,8 @@
 
     <TextView
         android:id="@+id/tvTrendingTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="21dp"
         android:layout_marginTop="10dp"
         android:ellipsize="end"
         android:gravity="center"
