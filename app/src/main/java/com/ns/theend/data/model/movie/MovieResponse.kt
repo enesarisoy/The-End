@@ -9,7 +9,7 @@ import kotlinx.parcelize.Parcelize
 data class MovieResponse(
     @SerializedName("page")
     val page: Int,
-    @SerializedName("results")
+    @SerializedName("castResults")
     val results: List<Result>,
     @SerializedName("total_pages")
     val totalPages: Int,

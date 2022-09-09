@@ -51,9 +51,9 @@ class TvCastAdapter : RecyclerView.Adapter<TvCastAdapter.TvCastViewHolder>() {
 
     override fun getItemCount(): Int = castList.size
 
-  /*  private var onItemClickListener: ((Result) -> Unit)? = null
+  /*  private var onItemClickListener: ((CastResult) -> Unit)? = null
 
-    fun setOnItemClickListener(listener: (Result) -> Unit) {
+    fun setOnItemClickListener(listener: (CastResult) -> Unit) {
         onItemClickListener = listener
     }*/
 

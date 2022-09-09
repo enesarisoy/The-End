@@ -1,13 +1,13 @@
-package com.ns.theend.data.model.search
+package com.ns.theend.data.model.cast
 
 
 import com.google.gson.annotations.SerializedName
 
-data class SearchResponse(
+data class CastResponse(
     @SerializedName("page")
     val page: Int,
     @SerializedName("castResults")
-    val results: List<Result>,
+    val castResults: List<CastResult>,
     @SerializedName("total_pages")
     val totalPages: Int,
     @SerializedName("total_results")

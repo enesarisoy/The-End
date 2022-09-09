@@ -94,6 +94,9 @@
         <action
             android:id="@+id/action_mainFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_castDetailFragment2"
+            app:destination="@id/castDetailFragment2" />
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
@@ -192,5 +195,14 @@
         <action
             android:id="@+id/action_searchFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/castDetailFragment2"
+        android:name="com.ns.theend.ui.cast.CastDetailFragment"
+        android:label="fragment_cast_detail"
+        tools:layout="@layout/fragment_cast_detail" >
+        <action
+            android:id="@+id/action_castDetailFragment2_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

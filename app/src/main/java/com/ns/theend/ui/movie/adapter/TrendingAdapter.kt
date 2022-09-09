@@ -24,7 +24,7 @@ class TrendingAdapter : RecyclerView.Adapter<TrendingAdapter.TrendingViewHolder>
         //TODO
     /*private val differCallback = object : DiffUtil.ItemCallback<MovieResponse>() {
         override fun areItemsTheSame(oldItem: MovieResponse, newItem: MovieResponse): Boolean {
-            return oldItem.results[0] == newItem.results[0]
+            return oldItem.castResults[0] == newItem.castResults[0]
         }
 
         override fun areContentsTheSame(oldItem: MovieResponse, newItem: MovieResponse): Boolean {
