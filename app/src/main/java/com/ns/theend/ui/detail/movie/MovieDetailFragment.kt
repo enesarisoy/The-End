@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
@@ -134,6 +135,15 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>(
     }
 
     private fun initOnClick() {
+
+        castAdapter.setOnItemClickListener {
+            findNavController().navigate(
+                MovieDetailFragmentDirections.actionMovieDetailFragmentToCastDetailFragment(it.id)
+            )
+        }
+
+
+
         binding.ivStar.setOnClickListener {
 //            firebaseDb.getReference("movie").push().child("movie_id").setValue(args.movie.id)
 //            firebaseDb.reference.child("movie_id").setValue(args.movie.id)
