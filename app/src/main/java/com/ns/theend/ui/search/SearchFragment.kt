@@ -40,12 +40,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
             when (it.mediaType) {
                 "movie" -> {
                     findNavController().navigate(
-                        MainSearchFragmentDirections.actionMainSearchFragmentToMovieDetailFragment(null, it)
+                        MainSearchFragmentDirections.actionMainSearchFragmentToMovieDetailFragment(null, it, null)
                     )
                 }
                 "tv" -> {
                     findNavController().navigate(
-                        MainSearchFragmentDirections.actionMainSearchFragmentToTvDetailFragment(null, it)
+                        MainSearchFragmentDirections.actionMainSearchFragmentToTvDetailFragment(null, it, null)
                     )
                 }
                 else -> Log.e("Dene", it.toString())

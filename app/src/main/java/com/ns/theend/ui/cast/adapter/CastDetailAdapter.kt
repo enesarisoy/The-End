@@ -40,22 +40,27 @@ class CastDetailAdapter : RecyclerView.Adapter<CastDetailAdapter.CastViewHolder>
         val cast = moviesList[position]
 
         holder.binding.apply {
-            tvTrendingTitle.text = cast.title
+
+            when (cast.mediaType) {
+                "movie" -> tvTrendingTitle.text = cast.title
+                "tv" -> tvTrendingTitle.text = cast.name
+
+            }
             ivTrending.downloadImage(Constants.IMAGE_BASE_URL + cast.posterPath)
 
         }
 
-        /*holder.itemView.setOnClickListener {
+        holder.itemView.setOnClickListener {
             onItemClickListener?.let { it(cast) }
-        }*/
+        }
 
     }
 
     override fun getItemCount(): Int = moviesList.size
 
-    private var onItemClickListener: ((Result) -> Unit)? = null
+    private var onItemClickListener: ((Cast) -> Unit)? = null
 
-    fun setOnItemClickListener(listener: (Result) -> Unit) {
+    fun setOnItemClickListener(listener: (Cast) -> Unit) {
         onItemClickListener = listener
     }
 
