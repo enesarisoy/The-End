@@ -39,6 +39,8 @@ class TvDetailFragment() : BaseFragment<FragmentTvDetailBinding>(
         args.tv?.let { viewModel.getCreditsTv(it.id, API_KEY) }
         args.searchTv?.id?.let { viewModel.getDetailTv(it, API_KEY) }
         args.searchTv?.let { viewModel.getCreditsTv(it.id, API_KEY) }
+        args.castDetail?.let { viewModel.getDetailTv(it.id, API_KEY) }
+        args.castDetail?.let { viewModel.getCreditsTv(it.id, API_KEY) }
 
         viewModel.detailTvResponse.observe(viewLifecycleOwner) { response ->
             when (response) {

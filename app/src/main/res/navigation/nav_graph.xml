@@ -120,6 +120,13 @@
         <action
             android:id="@+id/action_movieDetailFragment_to_mainSearchFragment"
             app:destination="@id/mainSearchFragment" />
+        <action
+            android:id="@+id/action_movieDetailFragment_to_castDetailFragment"
+            app:destination="@id/castDetailFragment" />
+        <argument
+            android:name="detail_cast"
+            app:argType="com.ns.theend.data.model.cast.detail.Cast"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/tvDetailFragment"
@@ -146,6 +153,13 @@
         <action
             android:id="@+id/action_tvDetailFragment_to_mainSearchFragment"
             app:destination="@id/mainSearchFragment" />
+        <argument
+            android:name="castDetail"
+            app:argType="com.ns.theend.data.model.cast.detail.Cast"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_tvDetailFragment_to_castDetailFragment"
+            app:destination="@id/castDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/movieFavoriteFragment"
@@ -252,5 +266,11 @@
         <argument
             android:name="id"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_castDetailFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+        <action
+            android:id="@+id/action_castDetailFragment_to_tvDetailFragment"
+            app:destination="@id/tvDetailFragment" />
     </fragment>
 </navigation>

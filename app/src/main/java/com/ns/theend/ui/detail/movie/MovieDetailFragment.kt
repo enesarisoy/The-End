@@ -53,6 +53,8 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>(
         args.movie?.id?.let { viewModel.getDetailMovie(it, API_KEY) }
         args.movie?.let { viewModel.getCreditsMovie(it.id, API_KEY) }
         args.searchMovie?.let { viewModel.getCreditsMovie(it.id, API_KEY) }
+        args.detailCast?.let { viewModel.getDetailMovie(it.id, API_KEY) }
+        args.detailCast?.let { viewModel.getCreditsMovie(it.id, API_KEY) }
 
         viewModel.detailMovieResponse.observe(viewLifecycleOwner) { response ->
 

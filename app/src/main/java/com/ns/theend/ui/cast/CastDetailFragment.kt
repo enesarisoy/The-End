@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ns.theend.R
@@ -46,6 +47,31 @@ class CastDetailFragment : BaseFragment<FragmentCastDetailBinding>(
     }
 
     private fun initClick() {
+        castDetailAdapter.setOnItemClickListener {
+            when (it.mediaType) {
+                "movie" -> {
+                    findNavController().navigate(
+                        CastDetailFragmentDirections.actionCastDetailFragmentToMovieDetailFragment(
+                            null,
+                            null,
+                            it
+                        )
+
+                    )
+                }
+                "tv" -> {
+                    findNavController().navigate(
+                        CastDetailFragmentDirections.actionCastDetailFragmentToTvDetailFragment(
+                            null,
+                            null,
+                            it
+                        )
+
+                    )
+                }
+            }
+
+        }
     }
 
     private fun initData() {

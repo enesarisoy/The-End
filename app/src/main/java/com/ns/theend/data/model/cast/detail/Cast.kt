@@ -1,8 +1,11 @@
 package com.ns.theend.data.model.cast.detail
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Cast(
     @SerializedName("adult")
     val adult: Boolean,
@@ -50,4 +53,12 @@ data class Cast(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-)
+) : Parcelable {
+    override fun hashCode(): Int {
+        var result = id.hashCode()
+        if(posterPath.isNullOrEmpty()){
+            result = 31 * result + posterPath.hashCode()
+        }
+        return result
+    }
+}
