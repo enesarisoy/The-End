@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.ns.theend.ui.OnClickStar
 import com.ns.theend.utils.Response
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -26,20 +27,22 @@ class FirebaseRepositoryImpl @Inject constructor(
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         val result = task.result
-                        result?.let { result ->
-                            val map: Map<String, String> = result.value as Map<String, String>
+                        result?.let { response ->
+                            val map: Map<String, String> = response.value as Map<String, String>
                             movieIdList = map.values.toList()
-                            Log.e("Denemee", movieIdList.toString())
+                            Log.e("Test", movieIdList.toString())
                         }
                     } else {
                         //todo
                     }
                 }.addOnFailureListener { exception ->
-                    Log.e("Exception", exception.toString())
+                    Log.e("Exception1", exception.toString())
                 }.addOnSuccessListener { success ->
-                    Log.e("Exception", success.toString())
+                    Log.e("Exception2", success.toString())
                 }
         }
+        Log.e("List", movieIdList.toString())
+
         return movieIdList
     }
 
@@ -91,7 +94,7 @@ class FirebaseRepositoryImpl @Inject constructor(
             }
     }*/
 
-    /* override suspend fun getData(): List<String> {
+     /*override suspend fun getData(): List<String> {
          if (uid?.isNotEmpty() == true) {
 
              database.getReference("Users").child(uid!!).child("movie")
@@ -111,6 +114,8 @@ class FirebaseRepositoryImpl @Inject constructor(
 
          return movieIdList
      }*/
+
+
 }
 
 

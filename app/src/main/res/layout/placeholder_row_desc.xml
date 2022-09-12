@@ -2,72 +2,32 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="wrap_content"
     android:layout_marginTop="4dp"
     android:layout_marginBottom="4dp">
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="110dp"
-        android:layout_height="match_parent"
+    <TextView
+        android:id="@+id/tvUpcoming"
+        android:layout_width="114dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="22dp"
         android:background="@color/mediumGray"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/white"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="0dp"
-        android:layout_height="30sp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
+    <com.zhpan.bannerview.BannerViewPager
+        android:id="@+id/ivUpcoming"
+        android:layout_width="350dp"
         android:background="@color/mediumGray"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/view"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/view3"
-        android:layout_width="0dp"
-        android:layout_height="40sp"
-        android:layout_marginTop="12dp"
-        android:background="@color/mediumGray"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toBottomOf="@+id/view2" />
-
-    <View
-        android:id="@+id/view5"
-        android:layout_width="50dp"
-        android:layout_height="30sp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="@color/mediumGray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/view3"
-        app:layout_constraintTop_toBottomOf="@+id/view3" />
-
-    <View
-        android:id="@+id/view6"
-        android:layout_width="36dp"
-        android:layout_height="36sp"
-        android:layout_marginEnd="12dp"
-        android:background="@color/mediumGray"
-        app:layout_constraintBottom_toBottomOf="@+id/view7"
-        app:layout_constraintEnd_toStartOf="@id/view7"
-        app:layout_constraintTop_toTopOf="@+id/view5" />
-
-    <View
-        android:id="@+id/view7"
-        android:layout_width="36dp"
-        android:layout_height="36sp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="12dp"
-        android:background="@color/mediumGray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view5" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUpcoming" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
