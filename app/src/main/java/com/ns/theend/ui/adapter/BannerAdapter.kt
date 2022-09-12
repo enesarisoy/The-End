@@ -1,6 +1,7 @@
 package com.ns.theend.ui.adapter
 
 import com.ns.theend.R
+import com.ns.theend.data.model.cast.detail.Cast
 import com.ns.theend.data.model.movie.Result
 import com.ns.theend.databinding.ItemRowBannerBinding
 import com.ns.theend.utils.Constants.IMAGE_BASE_URL
@@ -18,6 +19,7 @@ class BannerAdapter : BaseBannerAdapter<Result>() {
         val binding = ItemRowBannerBinding.bind(holder?.itemView!!)
         binding.bannerImage.downloadImage(IMAGE_BASE_URL + data!!.backdropPath)
         binding.movieDescribe.text = data.title
+
     }
 
     override fun getLayoutId(viewType: Int): Int {

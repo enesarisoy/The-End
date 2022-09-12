@@ -10,11 +10,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayoutMediator
-import com.jama.carouselview.enums.IndicatorAnimationType
-import com.jama.carouselview.enums.OffsetType
 import com.ns.theend.R
 import com.ns.theend.data.model.movie.Result
 import com.ns.theend.databinding.FragmentMovieBinding
@@ -29,9 +28,12 @@ import com.ns.theend.utils.*
 import com.ns.theend.utils.Constants.API_KEY
 import com.ns.theend.utils.Constants.IMAGE_BASE_URL
 import com.zhpan.bannerview.BannerViewPager
+import com.zhpan.bannerview.constants.PageStyle
 import com.zhpan.indicator.enums.IndicatorSlideMode
 import com.zhpan.indicator.enums.IndicatorStyle
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 
 @AndroidEntryPoint
 class MovieFragment : BaseFragment<FragmentMovieBinding>(
@@ -100,6 +102,8 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>(
                     MainFragmentDirections.actionMainFragmentToViewAllFragment("upcoming")
                 )
             }
+
+
         }
     }
 
@@ -170,8 +174,7 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>(
                             imageList.add(it.results[i])
                         }
                         setupViewPager(imageList)
-                        hideShimmerEffect()
-//                        initCarousel(imageList)
+//                        hideShimmerEffect()
 
                     }
                 }
@@ -179,7 +182,7 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>(
                     context?.toast(response.message.toString())
                 }
                 is Resource.Loading -> {
-                    showShimmerEffect()
+//                    showShimmerEffect()
                 }
             }
         }
@@ -207,24 +210,6 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>(
         }
     }
 
-    private fun initCarousel(images: List<String>) {
-        binding.ivUpcoming.apply {
-            /*  size = images.size
-              autoPlay = true
-              resource = R.layout.item_carousel
-              indicatorAnimationType = IndicatorAnimationType.FILL
-              carouselOffset = OffsetType.CENTER
-              setCarouselViewListener { view, position ->
-                  val imageView = view.findViewById<ImageView>(R.id.imgCarousel)
-                  var imgPath: String? = images[position]
-                  if (imgPath.isNullOrEmpty())
-                      imgPath = ""
-                  imageView.downloadImageForCarousel(IMAGE_BASE_URL + imgPath)
-              }
-              show()*/
-        }
-    }
-
     private fun setupViewPager(list: List<Result>) {
 
         banner.apply {
@@ -232,7 +217,7 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>(
             setLifecycleRegistry(lifecycle)
         }
             .setLifecycleRegistry(lifecycle)
-            .setIndicatorStyle(IndicatorStyle.CIRCLE)
+            .setIndicatorStyle(IndicatorStyle.ROUND_RECT)
             .setIndicatorSlideMode(3)
             .setIndicatorSliderGap(resources.getDimensionPixelOffset(R.dimen.dp_6))
             .setIndicatorSliderRadius(
@@ -241,17 +226,18 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>(
             )
             .setPageMargin(15)
             .setScrollDuration(800)
-            .setIndicatorSlideMode(IndicatorSlideMode.WORM)
             .setRevealWidth(
                 resources.getDimensionPixelOffset(R.dimen.dp_10),
                 resources.getDimensionPixelOffset(R.dimen.dp_10)
             )
-            .setPageStyle(1 shl 3)
+            .setPageStyle(PageStyle.MULTI_PAGE_OVERLAP)
+            .setIndicatorSlideMode(IndicatorSlideMode.WORM)
             .setIndicatorSliderColor(
-                ContextCompat.getColor(requireContext(), R.color.white_trans),
-                ContextCompat.getColor(requireContext(), R.color.light_blue)
+                ContextCompat.getColor(requireContext(), R.color.white_indicator),
+                ContextCompat.getColor(requireContext(), R.color.yellow_dark)
             )
             .create(list)
+
     }
 
     private fun showShimmerEffect() {
@@ -265,5 +251,6 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>(
         binding.scrollView.makeVisible()
         binding.shimmer.makeVisibilityGone()
     }
+
 
 }
