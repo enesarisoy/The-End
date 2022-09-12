@@ -22,8 +22,8 @@
             android:orientation="vertical"
             android:id="@+id/linear">
 
-            <include layout="@layout/placeholder_row_desc"/>
-            <include layout="@layout/placeholder_item_list"/>
+<!--            <include layout="@layout/placeholder_row_desc"/>-->
+<!--            <include layout="@layout/placeholder_item_list"/>-->
 
         </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
@@ -78,7 +78,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvTrending"
                 android:layout_width="match_parent"
-                android:layout_height="240dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"

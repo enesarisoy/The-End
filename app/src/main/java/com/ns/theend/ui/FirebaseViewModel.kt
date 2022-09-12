@@ -34,6 +34,7 @@ class FirebaseViewModel @Inject constructor(
     val data: LiveData<UiState<List<String>>>
         get() = _datas
 
+
     fun getData(id: String) = viewModelScope.launch{
 //        repository.getData(id) { _datas.value = it }
         val deneme = repository.getData()

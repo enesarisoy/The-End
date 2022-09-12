@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.ns.theend.ui.OnClickStar
 import com.ns.theend.utils.Response
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -93,7 +94,7 @@ class FirebaseRepositoryImpl @Inject constructor(
             }
     }*/
 
-    /* override suspend fun getData(): List<String> {
+     /*override suspend fun getData(): List<String> {
          if (uid?.isNotEmpty() == true) {
 
              database.getReference("Users").child(uid!!).child("movie")
@@ -113,6 +114,8 @@ class FirebaseRepositoryImpl @Inject constructor(
 
          return movieIdList
      }*/
+
+
 }
 
 
